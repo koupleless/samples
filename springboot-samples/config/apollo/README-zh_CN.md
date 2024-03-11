@@ -22,8 +22,8 @@ spring.jmx.default-domain=${spring.application.name}
 // 默认 apollo 使用 Eureka 获取服务地址，由于本地 docker 采用 bridge 网络模式，通过 Eureka 获取到的是虚拟子网服务地址
 // 在本地无法直接调用，所以这里直接通过自定义配置 `apollo.configService` 指定为 localhost
 
-System.setProperty("apollo.configService", "http://localhost:8080");
-System.setProperty("apollo.config-service", "http://localhost:8080");
+System.setProperty("apollo.configService", "http://localhost:8089");
+System.setProperty("apollo.config-service", "http://localhost:8089");
 System.setProperty("env", "DEV");
 ```
 3. pom 里引入 apollo 依赖
@@ -41,7 +41,7 @@ System.setProperty("env", "DEV");
 ```shell
 docker-compose up
 ```
-2. 登录 apollo 管理后台 `localhost:8080`，创建 app id 为 `biz1` 的项目和 key=data.name 的配置，创建 app id 为 `biz2` 的项目和 key=data.name 的配置，具体查看 https://www.apolloconfig.com/#/zh/deployment/quick-start
+2. 登录 apollo 管理后台 `localhost:8089`，创建 app id 为 `biz1` 的项目和 key=data.name 的配置，创建 app id 为 `biz2` 的项目和 key=data.name 的配置，具体查看 https://www.apolloconfig.com/#/zh/deployment/quick-start
 
 ![apps.png](imgs/apps.png)
 
