@@ -20,8 +20,8 @@ spring.jmx.default-domain=${spring.application.name}
 // using Eureka to get service address by default, but in docker bridge network mode, the service address is virtual subnet address
 // so we need to use `apollo.configService` to specify the apollo service address as localhost
 
-System.setProperty("apollo.configService", "http://localhost:8080");
-System.setProperty("apollo.config-service", "http://localhost:8080");
+System.setProperty("apollo.configService", "http://localhost:8089");
+System.setProperty("apollo.config-service", "http://localhost:8089");
 System.setProperty("env", "DEV");
 ```
 3. add apollo dependency in pom
@@ -39,7 +39,7 @@ Cause the initializeSystemProperty method is commented out, it is not possible t
 ```shell
 docker-compose up
 ```
-2. login apollo management background `localhost:8080`, create project with app id `biz1` and key=data.name, create project with app id `biz2` and key=data.name, see details https://www.apolloconfig.com/#/zh/deployment/quick-start
+2. login apollo management background `localhost:8089`, create project with app id `biz1` and key=data.name, create project with app id `biz2` and key=data.name, see details https://www.apolloconfig.com/#/zh/deployment/quick-start
 
 ![apps.png](imgs/apps.png)
 
