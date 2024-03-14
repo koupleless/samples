@@ -5,18 +5,10 @@ on:
   push:
     branches:
       - main
-      - runtime-2.0.x
-      - runtime-2.1.x
-    paths:
-      - './**'
 
   pull_request:
     branches:
       - main
-      - runtime-2.0.x
-      - runtime-2.1.x
-    paths:
-      - './**'
 
   # enable manually running the workflow
   workflow_dispatch:
@@ -42,17 +34,13 @@ jobs:
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
-      - name: Install Runtime
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
-        # working-directory: koupleless-runtime
-
       - name: Test for springboot samples
         run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./springboot-samples/
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        working-directory: .
+        working-directory: ./springboot-samples/
 
   unit-test-for-sofaboot-samples:
     runs-on: ubuntu-latest
@@ -74,17 +62,13 @@ jobs:
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
-      - name: Install Runtime
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
-        working-directory: .
-
       - name: Test for sofaboot samples
         run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./sofaboot-samples
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        # working-directory: koupleless-runtime
+        working-directory: ./sofaboot-samples
 
   unit-test-for-dubbo-samples:
     runs-on: ubuntu-latest
@@ -106,17 +90,13 @@ jobs:
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
-      - name: Install Runtime
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
-        # working-directory: koupleless-runtime
-
       - name: Test for dubbo samples
         run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./dubbo-samples
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        # working-directory: koupleless-runtime
+        working-directory: ./dubbo-samples
 
   unit-test-for-dubbo32-samples:
     runs-on: ubuntu-latest
@@ -138,17 +118,13 @@ jobs:
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
-      - name: Install Runtime
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
-        # working-directory: koupleless-runtime
-
       - name: Test for dubbo32 samples
         run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./dubbo32-samples
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        # working-directory: koupleless-runtime
+        working-directory: ./dubbo32-samples
 
   unit-test-for-springboot3-samples:
     runs-on: ubuntu-latest
@@ -170,14 +146,10 @@ jobs:
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
-      - name: Install Runtime
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
-        # working-directory: koupleless-runtime
-
       - name: Test for springboot3 samples
         run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./springboot3-samples
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        # working-directory: koupleless-runtime
+        working-directory: ./springboot3-samples

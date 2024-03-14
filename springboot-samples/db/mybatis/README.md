@@ -263,6 +263,12 @@ public class MybatisConfig {
 }
 ```
 
+3. exclude autoconfiguration for dataSource in biz
+```java
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class,
+                                  DruidDataSourceAutoConfigure.class })
+```
+
 same as the previous section "base and module define data source separately" start the base, deploy the module, and start the verification.
 
 ## Precautions

@@ -16,15 +16,17 @@
  */
 package com.alipay.sofa.biz1;
 
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import com.alipay.sofa.biz1.mapper.StudentMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DruidDataSourceAutoConfigure.class })
 //@MapperScan(basePackages = "com.alipay.sofa.biz1.mapper")
 public class Biz1Application {
     private static Logger LOGGER = LoggerFactory.getLogger(Biz1Application.class);
