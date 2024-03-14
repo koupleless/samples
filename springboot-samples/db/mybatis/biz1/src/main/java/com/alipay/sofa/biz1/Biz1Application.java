@@ -26,7 +26,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
-@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DruidDataSourceAutoConfigure.class })
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class,
+                                  DruidDataSourceAutoConfigure.class })
 //@MapperScan(basePackages = "com.alipay.sofa.biz1.mapper")
 public class Biz1Application {
     private static Logger LOGGER = LoggerFactory.getLogger(Biz1Application.class);
