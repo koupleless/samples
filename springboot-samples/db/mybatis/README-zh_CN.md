@@ -273,6 +273,12 @@ public class MybatisConfig {
 
 同上一节「基座、模块各自定义数据源」启动基座、部署模块、发起验证即可。
 
+3. 模块中排除 dataSource 的自动配置
+```java
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class,
+                                  DruidDataSourceAutoConfigure.class })
+```
+
 
 ## 注意事项
 这里主要使用简单应用做验证，如果复杂应用，需要注意模块做好瘦身，基座有的依赖，模块尽可能设置成 provided，尽可能使用基座的依赖。
