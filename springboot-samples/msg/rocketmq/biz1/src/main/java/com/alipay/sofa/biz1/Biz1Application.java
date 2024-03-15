@@ -19,15 +19,25 @@ package com.alipay.sofa.biz1;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.ResourceLoader;
 
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class Biz1Application {
     private static Logger LOGGER = LoggerFactory.getLogger(Biz1Application.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(Biz1Application.class, args);
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(Biz1Application.class)
+            .web(WebApplicationType.SERVLET);
+        // set biz to use resource loader.
+        ResourceLoader resourceLoader = new DefaultResourceLoader(
+            Biz1Application.class.getClassLoader());
+        builder.resourceLoader(resourceLoader);
+        builder.run(args);
         LOGGER.info("Biz1Application start!");
         LOGGER.info("Spring Boot Version: "
                     + SpringApplication.class.getPackage().getImplementationVersion());
