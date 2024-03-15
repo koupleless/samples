@@ -18,7 +18,8 @@ docker pull apache/rocketmq:4.9.7
 ```
 
 ```shell
-## ref https://juejin.cn/post/7109082879589613575
+# 注意在 rocketmq 根目录执行，而不是在 config 子目录里执行
+# ref https://juejin.cn/post/7109082879589613575
 # start nameServer, 默认端口为 -p 9876:9876
 docker run -d -p 9876:9876 -p 10909:10909 -p 10910:10910 -p 10911:10911 -p 10912:10912 -v $(pwd)/config/start.sh:/home/rocketmq/rocketmq-4.9.7/bin/start.sh -v $(pwd)/config/broker.conf:/home/rocketmq/rocketmq-4.9.7/bin/broker.conf apache/rocketmq:4.9.7 sh /home/rocketmq/rocketmq-4.9.7/bin/start.sh
 ```

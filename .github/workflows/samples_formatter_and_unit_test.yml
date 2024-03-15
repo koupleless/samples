@@ -40,7 +40,6 @@ jobs:
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        working-directory: ./springboot-samples/
 
   unit-test-for-sofaboot-samples:
     runs-on: ubuntu-latest
@@ -68,7 +67,6 @@ jobs:
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        working-directory: ./sofaboot-samples
 
   unit-test-for-dubbo-samples:
     runs-on: ubuntu-latest
@@ -96,7 +94,6 @@ jobs:
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        working-directory: ./dubbo-samples
 
   unit-test-for-dubbo32-samples:
     runs-on: ubuntu-latest
@@ -124,7 +121,6 @@ jobs:
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        working-directory: ./dubbo32-samples
 
   unit-test-for-springboot3-samples:
     runs-on: ubuntu-latest
@@ -152,4 +148,3 @@ jobs:
 
       - name: Check code formatter
         run: sh ./check_format.sh
-        working-directory: ./springboot3-samples

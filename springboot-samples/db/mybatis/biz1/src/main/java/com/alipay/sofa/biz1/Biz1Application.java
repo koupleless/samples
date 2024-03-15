@@ -18,21 +18,31 @@ package com.alipay.sofa.biz1;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import com.alipay.sofa.biz1.mapper.StudentMapper;
-import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.ResourceLoader;
 
-@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DruidDataSourceAutoConfigure.class })
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class,
+                                  DruidDataSourceAutoConfigure.class })
 //@MapperScan(basePackages = "com.alipay.sofa.biz1.mapper")
 public class Biz1Application {
     private static Logger LOGGER = LoggerFactory.getLogger(Biz1Application.class);
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(Biz1Application.class, args);
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(Biz1Application.class)
+                .web(WebApplicationType.SERVLET);
+        // set biz to use resource loader.
+        ResourceLoader resourceLoader = new DefaultResourceLoader(
+                Biz1Application.class.getClassLoader());
+        builder.resourceLoader(resourceLoader);
+        ConfigurableApplicationContext context = builder.run(args);
 
         StudentMapper studentMapper = (StudentMapper) context.getBean("studentMapper");
         studentMapper.getAll();
