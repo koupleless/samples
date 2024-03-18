@@ -37,10 +37,10 @@ public class Biz1Application {
 
     public static void main(String[] args) {
         SpringApplicationBuilder builder = new SpringApplicationBuilder(Biz1Application.class)
-                .web(WebApplicationType.SERVLET);
+            .web(WebApplicationType.SERVLET);
         // set biz to use resource loader.
         ResourceLoader resourceLoader = new DefaultResourceLoader(
-                Biz1Application.class.getClassLoader());
+            Biz1Application.class.getClassLoader());
         builder.resourceLoader(resourceLoader);
         ConfigurableApplicationContext context = builder.run(args);
 

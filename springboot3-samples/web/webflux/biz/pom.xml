@@ -47,10 +47,6 @@
 
 	<build>
 		<plugins>
-<!--			<plugin>-->
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--			</plugin>-->
 			<!-- 修改打包插件为 sofa-ark biz 打包插件，打包成 ark biz jar -->
 			<plugin>
 				<groupId>com.alipay.sofa</groupId>

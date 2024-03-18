@@ -83,6 +83,10 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
+						<configuration>
+							<!--	fix https://github.com/koupleless/koupleless/issues/161		-->
+							<loaderImplementation>CLASSIC</loaderImplementation>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
