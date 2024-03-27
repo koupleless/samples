@@ -55,6 +55,20 @@ The base is built from regular SpringBoot application. The only change you need 
     <version>${koupleless.runtime.version}</version>
 </dependency>
         <!-- end log4j2 dependency introduction -->
+
+<!-- To make third-party dependencies compatible with koupleless mode, add the following build plugin -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### biz

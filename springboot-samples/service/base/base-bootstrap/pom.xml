@@ -13,15 +13,10 @@
     <artifactId>base-bootstrap</artifactId>
 
     <dependencies>
-        <!--    务必将次依赖放在构建 pom 的第一个依赖引入, 并且设置 type= pom,
-            原理请参考这里 https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
-        <!--    must add this dependency as the first one in the pom for building jar, and set type=pom,
-            check the reason from here https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
         <dependency>
             <groupId>com.alipay.sofa.koupleless</groupId>
             <artifactId>koupleless-base-starter</artifactId>
             <version>${koupleless.runtime.version}</version>
-            <type>pom</type>
         </dependency>
         <!-- 这里添加 tomcat 单 host 模式部署多web应用的依赖 -->
         <dependency>
@@ -60,10 +55,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+            <!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
+            <plugin>
+                <groupId>com.alipay.sofa.koupleless</groupId>
+                <artifactId>koupleless-base-build-plugin</artifactId>
+                <version>${koupleless.runtime.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>add-patch</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

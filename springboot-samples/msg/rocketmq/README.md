@@ -27,14 +27,11 @@ docker run -d -p 9876:9876 -p 10909:10909 -p 10910:10910 -p 10911:10911 -p 10912
 The biz contains two modules, biz1 and biz2, both are regular SpringBoot. The packaging plugin method is modified to the sofaArk biz module packaging method, packaged as an ark biz jar package, and the packaging plugin configuration is as follows:
 
 ```xml
-<!-- Add dynamic module related dependencies here -->
-<!--    Be sure to put this dependency as the first dependency in the build pom, and set type= pom,
-    The principle can be found here https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
+
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
     <artifactId>koupleless-base-starter</artifactId>
     <version>${koupleless.runtime.version}</version>
-    <type>pom</type>
 </dependency>
 <!-- end of dynamic module related dependencies -->
 
@@ -55,6 +52,20 @@ The biz contains two modules, biz1 and biz2, both are regular SpringBoot. The pa
     <artifactId>rocketmq-spring-boot-starter</artifactId>
     <version>2.0.2</version>
 </dependency>
+
+<!-- To make third-party dependencies compatible with koupleless mode, you need to introduce the following build plugin -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 <!-- end -->
 ```
 
