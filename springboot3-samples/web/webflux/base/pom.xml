@@ -70,7 +70,7 @@
             </plugin>
             <plugin>
                 <groupId>com.alipay.sofa.koupleless</groupId>
-                <artifactId>koupleless-base-starter</artifactId>
+                <artifactId>koupleless-base-build-plugin</artifactId>
                 <version>${koupleless.build.plugin.version}</version>
                 <executions>
                     <execution>
