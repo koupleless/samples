@@ -8,16 +8,24 @@
 ## 基座新增依赖
 base 为普通 dubbo 应用改造而成，改造内容只需在主 pom 里增加如下依赖
 ```
-<!--覆盖dubbo 2.6同名类,一定要放在dubbo的依赖前面-->
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-dubbo2.6</artifactId>
-    <version>${koupleless.runtime.version}</version>
-</dependency>
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
     <artifactId>koupleless-base-starter</artifactId>
 </dependency>
+
+<!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 如果是 web 应用，并且希望后面模块部署与基座使用同一个 tomcat host，则引入如下依赖。详细查看[这里](https://www.sofastack.tech/projects/sofa-boot/sofa-ark-multi-web-component-deploy/)
 ```xml
@@ -90,17 +98,6 @@ base/com.alipay.sofa.rpc.dubbo26.model.DemoService
     <groupId>com.alipay.sofa</groupId>
     <artifactId>dubbo26model</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <scope>provided</scope>
-</dependency>
-```
-### 模块日志路径和基座隔离
-- 为了让基座和模块日志打印到不同的目录下，基座和模块还额外引入了 log4j2 adapter。
-- 如果不关心基座和模块日志是否打印在一起还是分开打印，那么这个依赖可以不加。
-```xml
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-log4j2</artifactId>
-    <version>${koupleless.runtime.version}</version>
     <scope>provided</scope>
 </dependency>
 ```

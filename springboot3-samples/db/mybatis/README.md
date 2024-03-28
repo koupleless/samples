@@ -69,6 +69,20 @@ The base is built from regular SpringBoot application. The only change you need 
     <artifactId>druid-spring-boot-starter</artifactId>
     <version>1.2.9</version>
 </dependency>
+
+<!-- To make third-party dependencies compatible with koupleless mode, add the following build plugin -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### biz

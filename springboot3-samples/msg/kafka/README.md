@@ -16,7 +16,6 @@ The base is built from regular SpringBoot application. The only change you need 
     <!-- The above version supports springboot3 -->
     <version>${koupleless.runtime.version}</version>
 </dependency>
-<!-- end dynamic module related dependencies -->
         
 <!-- Add dependencies for deploying multiple web applications in single host mode of tomcat here -->
 <dependency>
@@ -57,6 +56,20 @@ The base is built from regular SpringBoot application. The only change you need 
     <artifactId>spring-kafka</artifactId>
 </dependency>
 <!-- end kafka -->
+
+<!-- To make third-party dependencies compatible with koupleless mode, add the following build plugin -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### biz

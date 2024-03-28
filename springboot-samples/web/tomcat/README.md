@@ -18,14 +18,11 @@ The base is built from regular SpringBoot application. The only change you need 
 dependencies in pom
 
 ```xml
-<!-- Add dynamic module related dependencies here -->
-<!--    Be sure to put this dependency as the first dependency in the build pom, and set type= pom,
-    The principle can be found here https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
+
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
     <artifactId>koupleless-base-starter</artifactId>
     <version>${koupleless.runtime.version}</version>
-    <type>pom</type>
 </dependency>
         <!-- end of dynamic module related dependencies -->
 
@@ -35,6 +32,20 @@ dependencies in pom
 <artifactId>web-ark-plugin</artifactId>
 </dependency>
         <!-- end of dependencies for single host deployment -->
+
+<!-- To adapt third-party dependencies to koupleless mode, you need to introduce the following build plug-ins -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ## biz

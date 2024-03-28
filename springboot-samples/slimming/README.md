@@ -12,14 +12,10 @@ how to slim ark biz jar: delegate the framework, middleware and other common dep
 The base is built from regular SpringBoot application. The only change you need to do is to add the following dependencies in pom
 
 ```xml
-<!-- Add dynamic module related dependencies here -->
-<!--    Be sure to put this dependency as the first dependency in the build pom, and set type= pom,
-    The principle can be found here https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
     <artifactId>koupleless-base-starter</artifactId>
     <version>${koupleless.runtime.version}</version>
-    <type>pom</type>
 </dependency>
 <!-- end of dynamic module related dependencies -->
 
@@ -48,6 +44,20 @@ The base is built from regular SpringBoot application. The only change you need 
     <version>${koupleless.runtime.version}</version>
 </dependency>
 <!-- end of log4j2 -->
+
+<!-- To make third-party dependencies compatible with koupleless mode, you need to introduce the following build plugin -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### biz1

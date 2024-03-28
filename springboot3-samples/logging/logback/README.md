@@ -6,14 +6,9 @@
 ### base
 base 为普通 springboot 改造成的基座，改造内容为在 pom 里增加如下依赖
 ```xml
-<!-- koupleless 相关依赖 -->
-<!--    务必将次依赖放在构建 pom 的第一个依赖引入, 并且设置 type= pom, 
-    原理请参考这里 https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
 <dependency>
    <groupId>com.alipay.sofa.koupleless</groupId>
    <artifactId>koupleless-base-starter</artifactId>
-   <version>${koupleless.runtime.version}</version>
-   <type>pom</type>
 </dependency>
 <dependency>
     <groupId>com.alipay.sofa</groupId>
@@ -29,6 +24,20 @@ base 为普通 springboot 改造成的基座，改造内容为在 pom 里增加�
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-logging</artifactId>
 </dependency>
+
+<!-- To make third-party dependencies compatible with koupleless mode, add the following build plugin -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 注意⚠️：需要基座、模块采用独立日志配置特性，要求，sofa-ark-common 包版本不低于 2.2.6

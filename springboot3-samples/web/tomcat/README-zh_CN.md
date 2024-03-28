@@ -36,6 +36,20 @@ base 为普通 springboot 改造成的基座，改造内容为在 pom 里增加�
     </exclusions>
 </dependency>
 <!-- end 单 host 部署的依赖 -->
+
+<!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### biz
