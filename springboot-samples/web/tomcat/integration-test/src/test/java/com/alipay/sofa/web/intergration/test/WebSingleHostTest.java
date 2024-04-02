@@ -16,13 +16,10 @@
  */
 package com.alipay.sofa.web.intergration.test;
 
-import com.alipay.sofa.ark.container.service.classloader.BizClassLoader;
-import com.alipay.sofa.koupleless.common.BizRuntimeContextRegistry;
-import com.alipay.sofa.koupleless.test.suite.biz.SOFAArkTestBootstrap;
-import com.alipay.sofa.koupleless.test.suite.spring.model.KouplelessBaseSpringTestConfig;
-import com.alipay.sofa.koupleless.test.suite.spring.model.KouplelessBizSpringTestConfig;
-import com.alipay.sofa.koupleless.test.suite.spring.model.KouplelessMultiSpringTestConfig;
-import com.alipay.sofa.koupleless.test.suite.spring.multi.KouplelessTestMultiSpringApplication;
+import com.alipay.sofa.koupleless.test.suite.spring.model.BaseSpringTestConfig;
+import com.alipay.sofa.koupleless.test.suite.spring.model.BizSpringTestConfig;
+import com.alipay.sofa.koupleless.test.suite.spring.model.MultiSpringTestConfig;
+import com.alipay.sofa.koupleless.test.suite.spring.multi.TestMultiSpringApplication;
 import com.alipay.sofa.web.base.BaseApplication;
 import com.alipay.sofa.web.biz1.Biz1Application;
 import com.alipay.sofa.web.biz2.Biz2Application;
@@ -36,37 +33,34 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author CodeNoobKing
  * @date 2024/3/11
  */
 public class WebSingleHostTest {
 
-    private static KouplelessTestMultiSpringApplication multiApp;
+    private static TestMultiSpringApplication multiApp;
 
     private static final OkHttpClient client = new OkHttpClient();
 
     @SneakyThrows
     @BeforeClass
     public static void setUpMultiApplication() {
-        multiApp = new KouplelessTestMultiSpringApplication(KouplelessMultiSpringTestConfig
+        multiApp = new TestMultiSpringApplication(MultiSpringTestConfig
                 .builder()
                 .baseConfig(
-                        KouplelessBaseSpringTestConfig
+                        BaseSpringTestConfig
                                 .builder()
                                 .mainClass(BaseApplication.class)
                                 .build())
                 .bizConfigs(
                         Lists.newArrayList(
-                                KouplelessBizSpringTestConfig
+                                BizSpringTestConfig
                                         .builder()
                                         .bizName("biz1")
                                         .mainClass(Biz1Application.class)
                                         .build(),
-                                KouplelessBizSpringTestConfig
+                                BizSpringTestConfig
                                         .builder()
                                         .bizName("biz2")
                                         .mainClass(Biz2Application.class)
