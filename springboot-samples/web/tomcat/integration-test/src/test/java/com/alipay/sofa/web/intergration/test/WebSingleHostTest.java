@@ -23,6 +23,9 @@ import com.alipay.sofa.koupleless.test.suite.spring.model.KouplelessBaseSpringTe
 import com.alipay.sofa.koupleless.test.suite.spring.model.KouplelessBizSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.KouplelessMultiSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.multi.KouplelessTestMultiSpringApplication;
+import com.alipay.sofa.web.base.BaseApplication;
+import com.alipay.sofa.web.biz1.Biz1Application;
+import com.alipay.sofa.web.biz2.Biz2Application;
 import com.google.common.collect.Lists;
 import lombok.SneakyThrows;
 import okhttp3.Call;
@@ -44,25 +47,31 @@ public class WebSingleHostTest {
 
     private static KouplelessTestMultiSpringApplication multiApp;
 
-    private static final OkHttpClient                   client = new OkHttpClient();
+    private static final OkHttpClient client = new OkHttpClient();
 
     @SneakyThrows
     @BeforeClass
     public static void setUpMultiApplication() {
         multiApp = new KouplelessTestMultiSpringApplication(KouplelessMultiSpringTestConfig
-            .builder()
-            .baseConfig(
-                KouplelessBaseSpringTestConfig.builder().packageName("com.alipay.sofa.web.base")
-                    .mainClass("com.alipay.sofa.web.base.BaseApplication")
-                    .artifactId("base-web-single-host").build())
-            .bizConfigs(
-                Lists.newArrayList(
-                    KouplelessBizSpringTestConfig.builder().packageName("com.alipay.sofa.web.biz1")
-                        .bizName("biz1").mainClass("com.alipay.sofa.web.biz1.Biz1Application")
-                        .artifactId("biz1-web-single-host").build(),
-                    KouplelessBizSpringTestConfig.builder().packageName("com.alipay.sofa.web.biz2")
-                        .bizName("biz2").mainClass("com.alipay.sofa.web.biz2.Biz2Application")
-                        .artifactId("biz2-web-single-host").build())).build());
+                .builder()
+                .baseConfig(
+                        KouplelessBaseSpringTestConfig
+                                .builder()
+                                .mainClass(BaseApplication.class)
+                                .build())
+                .bizConfigs(
+                        Lists.newArrayList(
+                                KouplelessBizSpringTestConfig
+                                        .builder()
+                                        .bizName("biz1")
+                                        .mainClass(Biz1Application.class)
+                                        .build(),
+                                KouplelessBizSpringTestConfig
+                                        .builder()
+                                        .bizName("biz2")
+                                        .mainClass(Biz2Application.class)
+                                        .build()))
+                .build());
         multiApp.run();
         Thread.sleep(1000);
     }
@@ -70,15 +79,15 @@ public class WebSingleHostTest {
     @Test
     public void testContextWebhookPathPrefixIsAdded() throws Throwable {
         Response resp = client.newCall(
-            new Request.Builder().url("http://localhost:8080/").get().build()).execute();
+                new Request.Builder().url("http://localhost:8080/").get().build()).execute();
         Assert.assertEquals("hello to base deploy", resp.body().string());
 
         resp = client.newCall(
-            new Request.Builder().url("http://localhost:8080/biz1/").get().build()).execute();
+                new Request.Builder().url("http://localhost:8080/biz1/").get().build()).execute();
         Assert.assertEquals("hello to biz1 deploy", resp.body().string());
 
         resp = client.newCall(
-            new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
+                new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
         Assert.assertEquals("hello to biz2 deploy", resp.body().string());
 
     }

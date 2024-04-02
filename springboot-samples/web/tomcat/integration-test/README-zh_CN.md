@@ -11,11 +11,7 @@ koupleless 的运行时也会自动地给模块分配不同的 context path，�
 为了快速验证这一特性，我们计划通过 koupleless-test-suite 提供的集成测试框架，快速地启动基座 + biz1 + biz2
 模块，并验证复用 tomcat 实例的特性。
 
-## 集成测试框架原理
-
-模式原理介绍详看[这里](https://www.sofastack.tech/projects/sofa-boot/sofa-ark-multi-web-component-deploy/)
-
-## 集成测试模块说明
+## 集成测试模块使用说明
 
 ### 步骤一：引入必要依赖
 
@@ -71,32 +67,25 @@ koupleless 的运行时也会自动地给模块分配不同的 context path，�
 public static void setUpMultiApplication() {
     multiApp = new KouplelessTestMultiSpringApplication(KouplelessMultiSpringTestConfig
             .builder()
-            .baseConfig(KouplelessBaseSpringTestConfig
-                    .builder()
-                    .packageName("com.alipay.sofa.web.base") // 基座的包名
-                    .mainClass("com.alipay.sofa.web.base.BaseApplication") // 基座的启动类
-                    .artifactId("base-web-single-host") // 基座的 artifactId
-                    .build())
-            .bizConfigs(Lists.newArrayList(
-                    KouplelessBizSpringTestConfig
+            .baseConfig(
+                    KouplelessBaseSpringTestConfig
                             .builder()
-                            .packageName("com.alipay.sofa.web.biz1") // 模块1的包名
-                            .bizName("biz1") // 模块1的名称
-                            .mainClass("com.alipay.sofa.web.biz1.Biz1Application") // 模块1的启动类
-                            .artifactId("biz1-web-single-host") // 模块1的 artifactId
-                            .build(),
-                    KouplelessBizSpringTestConfig
-                            .builder()
-                            .packageName("com.alipay.sofa.web.biz2") // 模块2的包名
-                            .bizName("biz2") // 模块2的名称
-                            .mainClass("com.alipay.sofa.web.biz2.Biz2Application") // 模块2的启动类
-                            .artifactId("biz2-web-single-host") // 模块2的 artifactId
-                            .build()
-            ))
-            .build()
-    );
+                            .mainClass(BaseApplication.class)
+                            .build())
+            .bizConfigs(
+                    Lists.newArrayList(
+                            KouplelessBizSpringTestConfig
+                                    .builder()
+                                    .bizName("biz1")
+                                    .mainClass(Biz1Application.class)
+                                    .build(),
+                            KouplelessBizSpringTestConfig
+                                    .builder()
+                                    .bizName("biz2")
+                                    .mainClass(Biz2Application.class)
+                                    .build()))
+            .build());
     multiApp.run();
-    Thread.sleep(1000);
 }
 ```
 #### 编写测试用例
