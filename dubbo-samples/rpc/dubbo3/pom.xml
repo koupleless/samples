@@ -27,10 +27,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring.boot.version>2.7.16</spring.boot.version>
-<<<<<<< HEAD
 		<sofa.ark.version>2.2.9-SNAPSHOT</sofa.ark.version>
-=======
->>>>>>> origin/main
 		<koupleless.runtime.version>1.0.2-SNAPSHOT</koupleless.runtime.version>
 		<sofa.ark.version>2.2.9-SNAPSHOT</sofa.ark.version>
 		<disruptor.version>3.4.2</disruptor.version>
