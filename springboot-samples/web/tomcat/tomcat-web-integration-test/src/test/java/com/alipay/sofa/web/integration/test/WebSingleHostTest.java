@@ -40,31 +40,20 @@ public class WebSingleHostTest {
 
     private static TestMultiSpringApplication multiApp;
 
-    private static final OkHttpClient client = new OkHttpClient();
+    private static final OkHttpClient         client = new OkHttpClient();
 
     @SneakyThrows
     @BeforeClass
     public static void setUpMultiApplication() {
         multiApp = new TestMultiSpringApplication(MultiSpringTestConfig
-                .builder()
-                .baseConfig(
-                        BaseSpringTestConfig
-                                .builder()
-                                .mainClass(BaseApplication.class)
-                                .build())
-                .bizConfigs(
-                        Lists.newArrayList(
-                                BizSpringTestConfig
-                                        .builder()
-                                        .bizName("biz1")
-                                        .mainClass(Biz1Application.class)
-                                        .build(),
-                                BizSpringTestConfig
-                                        .builder()
-                                        .bizName("biz2")
-                                        .mainClass(Biz2Application.class)
-                                        .build()))
-                .build());
+            .builder()
+            .baseConfig(BaseSpringTestConfig.builder().mainClass(BaseApplication.class).build())
+            .bizConfigs(
+                Lists.newArrayList(
+                    BizSpringTestConfig.builder().bizName("biz1").mainClass(Biz1Application.class)
+                        .build(),
+                    BizSpringTestConfig.builder().bizName("biz2").mainClass(Biz2Application.class)
+                        .build())).build());
         multiApp.run();
         Thread.sleep(1000);
     }
@@ -72,15 +61,15 @@ public class WebSingleHostTest {
     @Test
     public void testContextWebhookPathPrefixIsAdded() throws Throwable {
         Response resp = client.newCall(
-                new Request.Builder().url("http://localhost:8080/").get().build()).execute();
+            new Request.Builder().url("http://localhost:8080/").get().build()).execute();
         Assert.assertEquals("hello to base deploy", resp.body().string());
 
         resp = client.newCall(
-                new Request.Builder().url("http://localhost:8080/biz1/").get().build()).execute();
+            new Request.Builder().url("http://localhost:8080/biz1/").get().build()).execute();
         Assert.assertEquals("hello to biz1 deploy", resp.body().string());
 
         resp = client.newCall(
-                new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
+            new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
         Assert.assertEquals("hello to biz2 deploy", resp.body().string());
 
     }
