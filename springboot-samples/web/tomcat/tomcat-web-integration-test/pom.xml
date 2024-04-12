@@ -30,6 +30,12 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>com.alipay.sofa.web</groupId>
+            <artifactId>base-web-single-host-bootstrap</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <classifier>lib</classifier>
+        </dependency>
         <!--biz dependency-->
 
         <dependency>
@@ -52,12 +58,7 @@
             <artifactId>okhttp</artifactId>
             <version>4.12.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.alipay.sofa.web</groupId>
-            <artifactId>base-web-single-host-bootstrap</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <classifier>lib</classifier>
-        </dependency>
+
     </dependencies>
 
 </project>
