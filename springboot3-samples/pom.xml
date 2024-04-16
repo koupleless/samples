@@ -14,7 +14,7 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <sofa.ark.version>3.0.2</sofa.ark.version>
+        <sofa.ark.version>3.0.4</sofa.ark.version>
         <koupleless.runtime.version>2.0.0</koupleless.runtime.version>
         <koupleless.build.plugin.version>1.1.0</koupleless.build.plugin.version>
         <disruptor.version>3.4.2</disruptor.version>
