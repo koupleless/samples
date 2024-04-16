@@ -28,7 +28,7 @@
 		<dubbo.version>2.6.12</dubbo.version>
 		<dubbo.spring.boot.version>0.2.1.RELEASE</dubbo.spring.boot.version>
 		<spring.boot.version>2.7.16</spring.boot.version>
-		<koupleless.runtime.version>1.1.0-SNAPSHOT</koupleless.runtime.version>
+		<koupleless.runtime.version>1.1.0</koupleless.runtime.version>
 		<sofa.ark.version>2.2.9-SNAPSHOT</sofa.ark.version>
 		<disruptor.version>3.4.2</disruptor.version>
 		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
