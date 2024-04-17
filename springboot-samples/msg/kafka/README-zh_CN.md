@@ -11,14 +11,10 @@ base 为普通 springboot 改造成的基座，改造内容为在 pom 里增加�
 ```xml
 
 
-<!-- 这里添加动态模块相关依赖 -->
-<!--    务必将次依赖放在构建 pom 的第一个依赖引入, 并且设置 type= pom, 
-    原理请参考这里 https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
     <artifactId>koupleless-base-starter</artifactId>
     <version>${koupleless.runtime.version}</version>
-    <type>pom</type>
 </dependency>
 <!-- end 动态模块相关依赖 -->
 
@@ -54,6 +50,20 @@ base 为普通 springboot 改造成的基座，改造内容为在 pom 里增加�
     <artifactId>spring-kafka</artifactId>
 </dependency>
 <!-- end kafka -->
+
+<!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### biz
@@ -103,19 +113,11 @@ biz 包含两个模块，分别为 biz1 和 biz2, 都是普通 springboot，修�
 ## 实验步骤
 
 ### 构建与启动 kafka 服务端
-#### 
-进入到 config 目录，执行如下命令，网络如果不通，需要开代理
-```shell
-docker build .
-```
-
-如果网络还是连不通，可以按照 Dockerfile 里的命令，本地执行，也可以启动 kafka 服务段
 
 #### 运行镜像
 ```shell
-docker run -p 2181:2181 -p 9092:9092 -e ADVERTISED_HOST=localhost serverless-registry.cn-shanghai.cr.aliyuncs.com/opensource/samples/kafka-zookeeper:0.1.1
+docker run -p 9092:9092 -p 9093:9093 --name kafka-3.6.2 -e KAFKA_ENABLE_KRAFT=yes -e KAFKA_CFG_NODE_ID=1 -e KAFKA_CFG_PROCESS_ROLES=controller,broker -e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 -e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT -e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 -e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER -e KAFKA_KRAFT_CLUSTER_ID=abcdefghijklmnopqrstuv -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true -e KAFKA_BROKER_ID=1 bitnami/kafka:3.6.2
 ```
-
 
 #### 执行 mvn clean package -DskipTests
 可在各 bundle 的 target 目录里查看到打包生成的 ark-biz jar 包

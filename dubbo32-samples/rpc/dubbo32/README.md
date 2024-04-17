@@ -141,12 +141,19 @@ Furthermore, the module also sets the dependencies as provided scope which is im
 ### Isolate module log path from base
 - To make the base and module log print to different directories, the base and module also introduce log4j2 adapter.
 ```xml
-<dependency>
+
+<plugin>
     <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-log4j2</artifactId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
     <version>${koupleless.runtime.version}</version>
-    <scope>provided</scope>
-</dependency>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### Testing code

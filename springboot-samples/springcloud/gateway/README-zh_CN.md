@@ -9,19 +9,30 @@
 ### base
 base 为普通 springboot cloud改造成的基座，改造内容为在 pom 里增加如下依赖
 ```xml
-<!--    务必将次依赖放在构建 pom 的第一个依赖引入, 并且设置 type= pom, 
-    原理请参考这里 https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
     <artifactId>koupleless-base-starter</artifactId>
     <version>${koupleless.runtime.version}</version>
-    <type>pom</type>
 </dependency>
 
 <dependency>
     <groupId>com.alipay.sofa</groupId>
     <artifactId>netty-ark-plugin</artifactId>
 </dependency>
+
+<!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### biz

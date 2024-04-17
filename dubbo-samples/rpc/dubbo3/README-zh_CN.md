@@ -133,15 +133,21 @@ base/com.alipay.sofa.rpc.dubbo3.model.CommonService
 </dependency>
 ```
 ### 模块日志路径和基座隔离
-- 为了让基座和模块日志打印到不同的目录下，基座和模块还额外引入了 log4j2 adapter。
-- 如果不关心基座和模块日志是否打印在一起还是分开打印，那么这个依赖可以不加。
+- 为了让依赖和多 ClassLoader 架构兼容，你需要动态地引入补丁，即加入如下构建插件。
 ```xml
-<dependency>
+
+<plugin>
     <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-log4j2</artifactId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
     <version>${koupleless.runtime.version}</version>
-    <scope>provided</scope>
-</dependency>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
 ### 测试调用代码

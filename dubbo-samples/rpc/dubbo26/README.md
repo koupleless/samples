@@ -6,19 +6,27 @@ English | [简体中文](./README-zh_CN.md)
 
 # Dubbo 2.6.x in module
 ## Add dependencies in the base
-base 为普通 dubbo 应用改造而成，改造内容只需在主 pom 里增加如下依赖
 The base is build from a normal dubbo application, the only thing you need to do is add the following dependencies in the build pom.xml
 ```xml
-<!--覆盖dubbo 2.6同名类,一定要放在dubbo的依赖前面-->
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-dubbo2.6</artifactId>
-    <version>${koupleless.runtime.version}</version>
-</dependency>
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
     <artifactId>koupleless-base-starter</artifactId>
 </dependency>
+
+<!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
 ```
 If the module is a web application and you want to deploy the module in the same tomcat host with base, add the following dependency. For more details, please refer to [here](https://www.sofastack.tech/projects/sofa-boot/sofa-ark-multi-web-component-deploy/)
 ```xml
@@ -96,18 +104,6 @@ If you need to communicate between the base and the module, the module classes t
     <scope>provided</scope>
 </dependency>
 ```
-### Module and Base log path isolation
-- To make the base and module log print to different directories, the base and module also introduce log4j2 adapter.
-
-```xml
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-log4j2</artifactId>
-    <version>${koupleless.runtime.version}</version>
-    <scope>provided</scope>
-</dependency>
-```
-
 ### Testing code
 publish a service
 ``` xml
