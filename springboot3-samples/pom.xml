@@ -10,12 +10,14 @@
     <packaging>pom</packaging>
 
     <properties>
-        <spring.boot.version>3.0.9</spring.boot.version>
+        <spring.boot.version>3.2.0</spring.boot.version>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <sofa.ark.version>3.0.2</sofa.ark.version>
-        <koupleless.runtime.version>2.0.0</koupleless.runtime.version>
+<!--        <sofa.ark.version>3.0.2</sofa.ark.version>-->
+<!--        <koupleless.runtime.version>2.0.0</koupleless.runtime.version>-->
+        <sofa.ark.version>3.1.0</sofa.ark.version>
+        <koupleless.runtime.version>2.1.0</koupleless.runtime.version>
         <disruptor.version>3.4.2</disruptor.version>
         <os.plugin.version>1.7.1</os.plugin.version>
         <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
@@ -44,6 +46,7 @@
         <module>web/webflux/base</module>
         <module>web/webflux/biz</module>
         <module>config/apollo</module>
+        <module>config/nacos</module>
         <module>msg/kafka/base</module>
         <module>msg/kafka/biz1</module>
         <module>msg/kafka/biz2</module>
