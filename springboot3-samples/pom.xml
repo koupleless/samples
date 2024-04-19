@@ -45,6 +45,7 @@
         <module>web/webflux/base</module>
         <module>web/webflux/biz</module>
         <module>config/apollo</module>
+        <module>config/nacos</module>
         <module>msg/kafka/base</module>
         <module>msg/kafka/biz1</module>
         <module>msg/kafka/biz2</module>
