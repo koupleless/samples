@@ -25,6 +25,16 @@
             <groupId>com.alipay.sofa.koupleless</groupId>
             <artifactId>koupleless-base-starter</artifactId>
             <version>${koupleless.runtime.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alipay.sofa.koupleless</groupId>
+                    <artifactId>koupleless-adapter-log4j2</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.alipay.sofa.koupleless</groupId>
+                    <artifactId>koupleless-adapter-logback</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.alipay.sofa</groupId>
