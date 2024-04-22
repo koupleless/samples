@@ -107,16 +107,9 @@ Note that the web context path of different biz is changed to different values, 
 
 ### build and start kafka server
 #### 
-#### cd info config dir, run the following command, if network is not available, you need to open vpn proxy
-```shell
-docker build .
-```
-
-if the network is still not available, you can execute the command in the Dockerfile locally, or start the kafka server
-
 #### start the image
 ```shell
-docker run -p 2181:2181 -p 9092:9092 -e ADVERTISED_HOST=localhost serverless-registry.cn-shanghai.cr.aliyuncs.com/opensource/samples/kafka-zookeeper:0.1.1
+docker run -p 9092:9092 -p 9093:9093 --name kafka-3.6.2 -e KAFKA_ENABLE_KRAFT=yes -e KAFKA_CFG_NODE_ID=1 -e KAFKA_CFG_PROCESS_ROLES=controller,broker -e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 -e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT -e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 -e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER -e KAFKA_KRAFT_CLUSTER_ID=abcdefghijklmnopqrstuv -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true -e KAFKA_BROKER_ID=1 bitnami/kafka:3.6.2
 ```
 
 #### run `mvn clean package -DskipTests`
