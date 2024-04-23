@@ -14,26 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.yuan.demowebflux;
+package com.alipay.sofa.web.webflux;
 
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.ServerRequest;
-import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Mono;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @author: yuanyuan
- * @date: 2023/11/6 5:19 下午
- */
-@Component
-public class CityHandler {
+@SpringBootApplication
+public class BizWebfluxApplication {
 
-    public Mono<ServerResponse> helloCity(ServerRequest request) {
-
-        return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
-            .body(BodyInserters.fromValue("Hello, city!"));
+    public static void main(String[] args) {
+        SpringApplication.run(BizWebfluxApplication.class, args);
     }
 
 }

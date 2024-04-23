@@ -14,27 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.yuan.demowebflux;
+package com.alipay.sofa.web.webflux;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.server.ServerRequest;
+import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 /**
  * @author: yuanyuan
- * @date: 2023/11/6 5:31 下午
+ * @date: 2023/11/6 5:19 下午
  */
-@RestController
-public class VillageController {
+@Component
+public class CityHandler {
 
-    @GetMapping("/village")
-    public Mono<String> village() {
-        return Mono.just("Hello, village");
-    }
+    public Mono<ServerResponse> helloCity(ServerRequest request) {
 
-    @GetMapping("/demo")
-    public String demo() {
-        return "Hello, demo";
+        return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
+            .body(BodyInserters.fromValue("Hello, city!"));
     }
 
 }
