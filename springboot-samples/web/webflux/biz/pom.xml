@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../../../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.alipay.sofa</groupId>
+	<groupId>com.alipay.sofa.web.webflux</groupId>
 	<artifactId>bizwebflux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bizwebflux</name>

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.web.integration.test;
+package com.alipay.sofa.web.webflux.integration.test;
 
 import com.alipay.sofa.koupleless.test.suite.spring.model.BaseSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BizSpringTestConfig;

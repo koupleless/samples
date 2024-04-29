@@ -21,6 +21,11 @@
             原理请参考这里 https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
         <!--    must add this dependency as the first one in the pom for building jar, and set type=pom,
             check the reason from here https://koupleless.gitee.io/docs/contribution-guidelines/runtime/multi-app-padater/ -->
+        <dependency>
+            <groupId>com.alipay.sofa.koupleless</groupId>
+            <artifactId>koupleless-base-starter</artifactId>
+            <version>${koupleless.runtime.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.alipay.sofa</groupId>
@@ -58,11 +63,6 @@
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alipay.sofa.koupleless</groupId>
-            <artifactId>koupleless-base-starter</artifactId>
-            <version>${koupleless.runtime.version}</version>
         </dependency>
     </dependencies>
 

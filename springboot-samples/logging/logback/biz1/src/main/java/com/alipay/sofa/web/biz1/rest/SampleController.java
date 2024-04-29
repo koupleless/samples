@@ -16,6 +16,7 @@
  */
 package com.alipay.sofa.web.biz1.rest;
 
+import com.alipay.sofa.koupleless.common.api.SpringBeanFinder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.lang.reflect.Method;
 
 @RestController
 public class SampleController {
@@ -32,7 +35,12 @@ public class SampleController {
     private ApplicationContext  applicationContext;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String hello() {
+    public String hello() throws Exception {
+        Object object = SpringBeanFinder.getBaseBean("sampleController");
+        Method method = object.getClass().getDeclaredMethod("hello");
+        method.setAccessible(true);
+        method.invoke(object);
+
         String appName = applicationContext.getId();
         LOGGER.info("{} web test: into sample controller", appName);
         return String.format("hello to %s deploy", appName);

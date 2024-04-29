@@ -14,16 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.web.base;
+package com.alipay.sofa.web.webflux;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
-@SpringBootTest
-class BaseApplicationTests {
+/**
+ * @author: yuanyuan
+ * @date: 2023/11/6 5:31 下午
+ */
+@RestController
+public class VillageController {
 
-    @Test
-    void contextLoads() {
+    @GetMapping("/village")
+    public Mono<String> village() {
+        return Mono.just("Hello, village");
+    }
+
+    @GetMapping("/demo")
+    public String demo() {
+        return "Hello, demo";
     }
 
 }
