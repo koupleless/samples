@@ -62,15 +62,15 @@ public class WebSingleHostTest {
     public void testContextWebhookPathPrefixIsAdded() throws Throwable {
         Response resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/").get().build()).execute();
-        Assert.assertEquals("hello to base deploy", resp.body().string());
+        Assert.assertTrue(resp.body().string().contains("hello to base deploy"));
 
         resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/biz1/").get().build()).execute();
-        Assert.assertEquals("hello to biz1 deploy", resp.body().string());
+        Assert.assertTrue(resp.body().string().contains("hello to biz1 deploy"));
 
         resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
-        Assert.assertEquals("hello to biz2 deploy", resp.body().string());
+        Assert.assertTrue(resp.body().string().contains("hello to biz2 deploy"));
 
     }
 }

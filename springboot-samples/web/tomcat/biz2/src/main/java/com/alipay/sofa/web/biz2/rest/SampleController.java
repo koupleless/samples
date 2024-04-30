@@ -33,9 +33,9 @@ public class SampleController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello() {
-
         String appName = applicationContext.getId();
-        return String.format("hello to %s deploy", appName);
+        return String.format("hello to %s deploy, run in %s", appName, Thread.currentThread()
+            .getContextClassLoader().getClass().getName());
     }
 
     @RequestMapping(value = "/timestamp", method = RequestMethod.GET)
