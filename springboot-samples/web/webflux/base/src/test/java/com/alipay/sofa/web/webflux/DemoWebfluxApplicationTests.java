@@ -16,15 +16,14 @@
  */
 package com.alipay.sofa.web.webflux;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootApplication
-public class DemowebfluxApplication {
+@SpringBootTest
+class DemoWebfluxApplicationTests {
 
-    public static void main(String[] args) {
-        SpringApplication.run(DemowebfluxApplication.class, args);
-        System.out.println("DemowebfluxApplication start!!!");
+    @Test
+    void contextLoads() {
     }
 
 }
