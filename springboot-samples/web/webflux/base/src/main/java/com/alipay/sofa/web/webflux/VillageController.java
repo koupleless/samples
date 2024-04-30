@@ -37,4 +37,8 @@ public class VillageController {
         return "Hello, demo";
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "hello to base deploy";
+    }
 }
