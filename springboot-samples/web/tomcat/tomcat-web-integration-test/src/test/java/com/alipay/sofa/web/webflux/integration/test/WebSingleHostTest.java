@@ -16,13 +16,15 @@
  */
 package com.alipay.sofa.web.webflux.integration.test;
 
+import com.alipay.sofa.koupleless.test.suite.biz.TestBizClassLoader;
+import com.alipay.sofa.koupleless.test.suite.spring.base.BaseClassLoader;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BaseSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BizSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.MultiSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.multi.TestMultiSpringApplication;
+import com.alipay.sofa.web.base.BaseApplication;
 import com.alipay.sofa.web.biz1.Biz1Application;
 import com.alipay.sofa.web.biz2.Biz2Application;
-import com.alipay.sofa.web.base.BaseApplication;
 import com.google.common.collect.Lists;
 import lombok.SneakyThrows;
 import okhttp3.OkHttpClient;
@@ -62,15 +64,20 @@ public class WebSingleHostTest {
     public void testContextWebhookPathPrefixIsAdded() throws Throwable {
         Response resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/").get().build()).execute();
-        Assert.assertTrue(resp.body().string().contains("hello to base deploy"));
+        String respStr = resp.body().string();
+        Assert.assertTrue(respStr.contains("hello to base deploy"));
+        Assert.assertTrue(respStr.endsWith(BaseClassLoader.class.getName()));
 
         resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/biz1/").get().build()).execute();
-        Assert.assertTrue(resp.body().string().contains("hello to biz1 deploy"));
+        respStr = resp.body().string();
+        Assert.assertTrue(respStr.contains("hello to biz1 deploy"));
+        Assert.assertTrue(respStr.endsWith(TestBizClassLoader.class.getName()));
 
         resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
-        Assert.assertTrue(resp.body().string().contains("hello to biz2 deploy"));
-
+        respStr = resp.body().string();
+        Assert.assertTrue(respStr.contains("hello to biz2 deploy"));
+        Assert.assertTrue(respStr.endsWith(TestBizClassLoader.class.getName()));
     }
 }
