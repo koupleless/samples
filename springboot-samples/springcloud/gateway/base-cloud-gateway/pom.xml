@@ -85,6 +85,25 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <classifier>lib</classifier>
+                            <!-- Ensure other necessary configuration here -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
             <plugin>
                 <groupId>com.alipay.sofa.koupleless</groupId>

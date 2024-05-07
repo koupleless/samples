@@ -16,6 +16,8 @@
  */
 package com.alipay.sofa.web.integration.test;
 
+import com.alipay.sofa.dynamicstock.base.facade.StrategyService;
+import com.alipay.sofa.koupleless.common.api.SpringServiceFinder;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BaseSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BizSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.MultiSpringTestConfig;
@@ -72,5 +74,7 @@ public class WebSingleHostTest {
             new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
         Assert.assertEquals("hello to biz2 deploy", resp.body().string());
 
+        Assert.assertEquals("biz1",
+            SpringServiceFinder.getModuleService("biz1", null, StrategyService.class).getAppName());
     }
 }

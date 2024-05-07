@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.alipay.sofa</groupId>
@@ -14,13 +15,13 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <koupleless.runtime.version>1.1.0</koupleless.runtime.version>
+        <koupleless.runtime.version>1.3.0-SNAPSHOT</koupleless.runtime.version>
         <sofa.ark.version>2.2.9</sofa.ark.version>
         <disruptor.version>3.4.2</disruptor.version>
         <os.plugin.version>1.7.1</os.plugin.version>
         <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
         <protobuf.version>3.17.3</protobuf.version>
-<!--        <spring-cloud.version>2.2.10.RELEASE</spring-cloud.version>-->
+        <!--        <spring-cloud.version>2.2.10.RELEASE</spring-cloud.version>-->
         <license.maven.plugin>3.0</license.maven.plugin>
         <maven.java.formatter.plugin>0.4</maven.java.formatter.plugin>
         <maven.compiler.plugin>3.1</maven.compiler.plugin>
@@ -42,8 +43,9 @@
         <module>logging/logback/base</module>
         <module>logging/logback/biz1</module>
         <module>web/tomcat</module>
-        <module>web/webflux/base</module>
-        <module>web/webflux/biz</module>
+        <module>web/webflux/demowebflux</module>
+        <module>web/webflux/bizwebflux</module>
+        <module>web/webflux/webflux-integration-test</module>
         <module>service</module>
         <module>slimming/log4j2</module>
         <module>msg/kafka/base</module>
@@ -167,6 +169,13 @@
                 <groupId>com.alipay.sofa.koupleless</groupId>
                 <artifactId>koupleless-adapter-log4j2</artifactId>
                 <version>${koupleless.runtime.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.13.1</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

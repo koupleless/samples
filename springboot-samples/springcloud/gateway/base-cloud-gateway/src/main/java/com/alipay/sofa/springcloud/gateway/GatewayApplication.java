@@ -59,6 +59,7 @@ public class GatewayApplication {
 
     @Bean
     public MapReactiveUserDetailsService reactiveUserDetailsService() {
+        // org.springframework.security.config.annotation.web.reactive.ServerHttpSecurityConfiguration$ContextAwareServerHttpSecurity
         UserDetails user = User.withDefaultPasswordEncoder().username("user").password("password")
             .roles("USER").build();
         return new MapReactiveUserDetailsService(user);

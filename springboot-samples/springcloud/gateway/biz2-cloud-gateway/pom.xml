@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>biz1-cloud-gateway</artifactId>
+    <artifactId>biz2-cloud-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
@@ -35,12 +35,6 @@
         </dependency>
 
         <!-- 这里设置为 provided，使用基座的依赖，详细查看类委托加载机制 https://www.sofastack.tech/projects/sofa-boot/sofa-ark-class-loader-delegation/ -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-<!--            <scope>provided</scope>-->
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
@@ -84,13 +78,14 @@
                 <configuration>
                     <skipArkExecutable>true</skipArkExecutable>
                     <outputDirectory>./target</outputDirectory>
-                    <bizName>biz1-cloud-gateway</bizName>
+                    <bizName>biz2-cloud-gateway</bizName>
                     <!-- 单host下需更换 web context path -->
-                    <webContextPath>biz1</webContextPath>
+                    <webContextPath>biz2</webContextPath>
                     <declaredMode>true</declaredMode>
                     <packExcludesConfig>rules.txt</packExcludesConfig>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>
