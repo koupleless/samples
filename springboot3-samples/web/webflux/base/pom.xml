@@ -9,11 +9,9 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <groupId>om.alipay.sofa</groupId>
-    <artifactId>demowebflux</artifactId>
+    <groupId>com.alipay.sofa.web.webflux</groupId>
+    <artifactId>base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demowebflux</name>
-    <description>Demo project for Spring Boot</description>
     <dependencies>
         <dependency>
             <groupId>com.alipay.sofa.koupleless</groupId>
