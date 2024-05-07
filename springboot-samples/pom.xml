@@ -37,11 +37,12 @@
     </properties>
 
     <modules>
-        <module>logging/log4j2/base</module>
-        <module>logging/log4j2/biz1</module>
-        <module>logging/log4j2/biz2</module>
-        <module>logging/logback/base</module>
-        <module>logging/logback/biz1</module>
+        <module>logging/log4j2/base-log4j2</module>
+        <module>logging/log4j2/biz1-log4j2</module>
+        <module>logging/log4j2/biz2-log4j2</module>
+        <module>logging/log4j2/log4j2-integration-test</module>
+        <module>logging/logback/base-logback</module>
+        <module>logging/logback/biz1-logback</module>
         <module>web/tomcat</module>
         <module>web/webflux/demowebflux</module>
         <module>web/webflux/bizwebflux</module>
@@ -64,6 +65,7 @@
         <module>config/nacos</module>
         <module>springcloud/gateway</module>
         <module>service/cross-biz-calling-integration-test</module>
+        <module>logging/logback/logback-integration-test</module>
     </modules>
 
     <dependencyManagement>

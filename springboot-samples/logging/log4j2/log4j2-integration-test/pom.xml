@@ -7,10 +7,16 @@
         <groupId>com.alipay.sofa</groupId>
         <artifactId>springboot-samples</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>cross-biz-calling-integration-test</artifactId>
+    <artifactId>log4j2-integration-test</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -24,36 +30,19 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.alipay.sofa.service</groupId>
-            <artifactId>base-bootstrap</artifactId>
+            <groupId>com.alipay.sofa.logging.log4j2</groupId>
+            <artifactId>base-log4j2</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <classifier>lib</classifier>
         </dependency>
         <dependency>
-            <groupId>com.alipay.sofa.service</groupId>
-            <artifactId>base-facade</artifactId>
+            <groupId>com.alipay.sofa.logging.log4j2</groupId>
+            <artifactId>biz1-log4j2</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.alipay.sofa.service</groupId>
-            <artifactId>biz1-bootstrap</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <classifier>lib</classifier>
-        </dependency>
-        <dependency>
-            <groupId>com.alipay.sofa.service</groupId>
-            <artifactId>biz1-facade</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alipay.sofa.service</groupId>
-            <artifactId>biz2-bootstrap</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <classifier>lib</classifier>
-        </dependency>
-        <dependency>
-            <groupId>com.alipay.sofa.service</groupId>
-            <artifactId>biz2-facade</artifactId>
+            <groupId>com.alipay.sofa.logging.log4j2</groupId>
+            <artifactId>biz2-log4j2</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
