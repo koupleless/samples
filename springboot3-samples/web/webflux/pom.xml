@@ -24,12 +24,12 @@
         <dependencies>
             <dependency>
                 <groupId>com.alipay.sofa.web.webflux</groupId>
-                <artifactId>biz</artifactId>
+                <artifactId>biz-webflux</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.alipay.sofa.web.webflux</groupId>
-                <artifactId>base</artifactId>
+                <artifactId>base-webflux</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>

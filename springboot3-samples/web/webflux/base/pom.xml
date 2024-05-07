@@ -10,7 +10,7 @@
         <relativePath>../../../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.alipay.sofa.web.webflux</groupId>
-    <artifactId>base</artifactId>
+    <artifactId>base-webflux</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <dependencies>
         <dependency>
