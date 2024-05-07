@@ -95,7 +95,7 @@
             <plugin>
                 <groupId>com.alipay.sofa.koupleless</groupId>
                 <artifactId>koupleless-base-build-plugin</artifactId>
-                <version>${koupleless.build.plugin.version}</version>
+                <version>${koupleless.runtime.version}</version>
                 <executions>
                     <execution>
                         <goals>
