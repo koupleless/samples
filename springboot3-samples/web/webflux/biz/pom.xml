@@ -9,7 +9,7 @@
 		<relativePath>../../../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.alipay.sofa.web.webflux</groupId>
-	<artifactId>biz</artifactId>
+	<artifactId>biz-webflux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bizwebflux</name>
 	<description>Demo project for Spring Boot</description>
