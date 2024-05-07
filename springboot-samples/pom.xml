@@ -66,6 +66,7 @@
         <module>springcloud/gateway</module>
         <module>service/cross-biz-calling-integration-test</module>
         <module>logging/logback/logback-integration-test</module>
+        <module>cache/redis/redis-integration-test</module>
     </modules>
 
     <dependencyManagement>
