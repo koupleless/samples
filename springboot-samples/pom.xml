@@ -63,6 +63,7 @@
         <module>config/apollo</module>
         <module>config/nacos</module>
         <module>springcloud/gateway</module>
+        <module>service/cross-biz-calling-integration-test</module>
     </modules>
 
     <dependencyManagement>
