@@ -49,9 +49,9 @@
         <module>web/webflux/webflux-integration-test</module>
         <module>service</module>
         <module>slimming/log4j2</module>
-        <module>msg/kafka/base</module>
-        <module>msg/kafka/biz1</module>
-        <module>msg/kafka/biz2</module>
+        <module>msg/kafka/base-kafka</module>
+        <module>msg/kafka/biz1-kafka</module>
+        <module>msg/kafka/biz2-kafka</module>
         <module>msg/rocketmq/base</module>
         <module>msg/rocketmq/biz1</module>
         <module>db/mybatis</module>
@@ -67,6 +67,7 @@
         <module>service/cross-biz-calling-integration-test</module>
         <module>logging/logback/logback-integration-test</module>
         <module>cache/redis/redis-integration-test</module>
+        <module>msg/kafka/kafka-integration-test</module>
     </modules>
 
     <dependencyManagement>
