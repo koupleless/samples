@@ -33,6 +33,7 @@
             <groupId>com.alipay.sofa.msg.kafka</groupId>
             <artifactId>base-kafka</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <classifier>lib</classifier>
         </dependency>
 
         <dependency>
