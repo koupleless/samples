@@ -25,7 +25,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @EnableConfigurationProperties
 @EnableApolloConfig
 @SpringBootApplication
-public class ApolloApplication {
+public class BaseApolloApplication {
 
     public static void main(String[] args) {
         MultiBizProperties.initSystem();
@@ -36,6 +36,6 @@ public class ApolloApplication {
         System.setProperty("apollo.config-service", "http://localhost:8089");
         System.setProperty("env", "DEV");
 
-        SpringApplication.run(ApolloApplication.class, args);
+        SpringApplication.run(BaseApolloApplication.class, args);
     }
 }
