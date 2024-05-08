@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>bootstrap</module>
-        <module>facade</module>
+        <module>base-mongo-bootstrap</module>
+        <module>base-mongo-facade</module>
     </modules>
 </project>
