@@ -32,6 +32,7 @@
             <groupId>com.alipay.sofa.logging.logback</groupId>
             <artifactId>base-logback</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <classifier>lib</classifier>
         </dependency>
         <dependency>
             <groupId>com.alipay.sofa.logging.logback</groupId>

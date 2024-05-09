@@ -32,16 +32,13 @@ public class ApolloIntegrationTest {
     @BeforeClass
     public static void setUp() {
         TestMultiSpringApplication multiApp = new TestMultiSpringApplication(MultiSpringTestConfig
-                .builder()
-                .baseConfig(BaseSpringTestConfig
-                        .builder()
-                        .mainClass(BaseApolloApplication.class)
-                        .build())
-                .bizConfigs(
-                        Lists.newArrayList(BizSpringTestConfig.builder().bizName("biz1")
-                                .mainClass(Biz1ApolloApplication.class)
-                                .includeArtifactIds(Lists
-                                        .newArrayList("apollo-client")).build())).build());
+            .builder()
+            .baseConfig(
+                BaseSpringTestConfig.builder().mainClass(BaseApolloApplication.class).build())
+            .bizConfigs(
+                Lists.newArrayList(BizSpringTestConfig.builder().bizName("biz1")
+                    .mainClass(Biz1ApolloApplication.class)
+                    .includeArtifactIds(Lists.newArrayList("apollo-client")).build())).build());
         multiApp.run();
     }
 
