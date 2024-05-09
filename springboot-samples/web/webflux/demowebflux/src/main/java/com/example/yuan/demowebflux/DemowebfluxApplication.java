@@ -14,16 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.yuan.demowebflux;
+package com.alipay.sofa.web.webflux;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemowebfluxApplication {
+public class DemoWebfluxApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemowebfluxApplication.class, args);
+        SpringApplication.run(DemoWebfluxApplication.class, args);
         System.out.println("DemowebfluxApplication start!!!");
     }
 

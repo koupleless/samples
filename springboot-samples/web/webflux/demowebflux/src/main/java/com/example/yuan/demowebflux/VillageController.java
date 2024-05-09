@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.yuan.demowebflux;
+package com.alipay.sofa.web.webflux;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,4 +37,8 @@ public class VillageController {
         return "Hello, demo";
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "hello to base deploy";
+    }
 }
