@@ -14,8 +14,9 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <sofa.ark.version>3.0.5</sofa.ark.version>
         <koupleless.runtime.version>2.0.1-SNAPSHOT</koupleless.runtime.version>
-        <sofa.ark.version>3.0.4</sofa.ark.version>
+        <koupleless.runtime.version>2.0.1-SNAPSHOT</koupleless.runtime.version>
         <disruptor.version>3.4.2</disruptor.version>
         <os.plugin.version>1.7.1</os.plugin.version>
         <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
@@ -38,11 +39,8 @@
         <module>logging/log4j2/biz1</module>
         <module>logging/log4j2/biz2</module>
         <module>logging/logback</module>
-        <module>web/tomcat/base</module>
-        <module>web/tomcat/biz1</module>
-        <module>web/tomcat/biz2</module>
-        <module>web/webflux/base</module>
-        <module>web/webflux/biz</module>
+        <module>web/tomcat</module>
+        <module>web/webflux</module>
         <module>config/apollo</module>
         <module>config/nacos</module>
         <module>msg/kafka/base</module>
