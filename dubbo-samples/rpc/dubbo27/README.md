@@ -2,12 +2,6 @@
 ## 基座新增依赖
 base 为普通 dubbo 应用改造而成，改造内容只需在主 pom 里增加如下依赖
 ```xml
-<!--覆盖dubbo 2.7同名类,一定要放在dubbo的依赖前面-->
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-dubbo2.7</artifactId>
-    <version>${koupleless.runtime.version}</version>
-</dependency>
 <!-- koupleless 依赖-->
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
@@ -63,20 +57,6 @@ base 为普通 dubbo 应用改造而成，改造内容只需在主 pom 里增加
 ### 2. 添加依赖
 另外模块还额外将基座里有的依赖，设置为了 provided，这样可以尽可能的复用基座的spring、dubbo依赖等。通信类 dubbo27model 不用 provided，让biz类加载器自己加载
 ```xml
-<!--提供 log4j2 适配，提供基座、模块日志隔离，不需要可以不添加-->
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-log4j2</artifactId>
-    <version>${koupleless.runtime.version}</version>
-    <scope>provided</scope>
-</dependency>
-<!--提供 dubbo2.7 适配-->
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-dubbo2.7</artifactId>
-    <version>${koupleless.runtime.version}</version>
-    <scope>provided</scope>
-</dependency>
 <!-- 通信类-->
 <dependency>
     <groupId>com.alipay.sofa</groupId>

@@ -160,11 +160,6 @@
                 <artifactId>koupleless-app-starter</artifactId>
                 <version>${koupleless.runtime.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.alipay.sofa.koupleless</groupId>
-                <artifactId>koupleless-adapter-log4j2</artifactId>
-                <version>${koupleless.runtime.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 

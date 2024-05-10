@@ -46,12 +46,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-
-        <!--		<dependency>-->
-        <!--			<groupId>com.alipay.sofa.koupleless</groupId>-->
-        <!--			<artifactId>koupleless-adapter-dubbo2.7</artifactId>-->
-        <!--			<version>${koupleless.runtime.version}</version>-->
-        <!--		</dependency>-->
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
@@ -107,7 +101,7 @@
             <plugin>
                 <groupId>com.alipay.sofa.koupleless</groupId>
                 <artifactId>koupleless-base-build-plugin</artifactId>
-                <version>1.1.0</version>
+                <version>${koupleless.runtime.version}</version>
                 <executions>
                     <execution>
                         <goals>
