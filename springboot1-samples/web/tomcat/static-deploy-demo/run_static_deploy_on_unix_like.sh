@@ -17,6 +17,6 @@ mv $BASE_DIR/biz2/target/*-biz.jar $BASE_DIR/static-deploy-demo/biz/
 cd $BASE_DIR/static-deploy-demo
 echo "Launching base application..."
 echo "java -Dcom.alipay.sofa.ark.static.biz.dir=./biz -jar base-web-single-host-bootstrap-0.0.1-SNAPSHOT.jar"
-java -Dcom.alipay.sofa.ark.static.biz.dir=./biz -jar base-web-single-host-bootstrap-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+java -Dcom.alipay.sofa.ark.static.biz.dir=./biz -jar base-web-single-host-bootstrap-0.0.1-SNAPSHOT.jar
 
 echo "Script completed."
