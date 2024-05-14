@@ -67,16 +67,6 @@ biz1 包含两个打包插件，一个常规 springboot 插件, 构建普通 spr
 
 **特别注意**： sofa ark 插件定义顺序必须在 springboot 打包插件前;
 ```xml
-<!-- 模块需要引入专门的 log4j2 adapter 做日志适配 -->
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-log4j2</artifactId>
-    <version>${koupleless.runtime.version}</version>
-    <!--<scope>provided</scope> -->
-    <!-- 不进行模块瘦身，需要修改依赖 scope 为 provided，使得模块复用基座的 jar 包 -->
-    <!-- 添加模块自动瘦身后，不需要修改模块的任何代码 -->
-</dependency>
-
  <!-- 以下插件配置是本次实验的关键内容 -->
 <build>
 <plugins>

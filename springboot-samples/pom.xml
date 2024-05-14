@@ -14,8 +14,8 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <koupleless.runtime.version>1.2.0</koupleless.runtime.version>
-        <sofa.ark.version>2.2.10</sofa.ark.version>
+        <koupleless.runtime.version>1.2.1-SNAPSHOT</koupleless.runtime.version>
+        <sofa.ark.version>2.2.11-SNAPSHOT</sofa.ark.version>
         <disruptor.version>3.4.2</disruptor.version>
         <os.plugin.version>1.7.1</os.plugin.version>
         <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
@@ -69,6 +69,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+<!--     when springboot is 2.1.9.RELEASE, please  de-comment this dependency     -->
+<!--            <dependency>-->
+<!--                <groupId>com.github.oshi</groupId>-->
+<!--                <artifactId>oshi-core</artifactId>-->
+<!--                <version>3.9.1</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>com.alipay.sofa.db.mongo</groupId>
@@ -158,11 +165,6 @@
             <dependency>
                 <groupId>com.alipay.sofa.koupleless</groupId>
                 <artifactId>koupleless-app-starter</artifactId>
-                <version>${koupleless.runtime.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alipay.sofa.koupleless</groupId>
-                <artifactId>koupleless-adapter-log4j2</artifactId>
                 <version>${koupleless.runtime.version}</version>
             </dependency>
         </dependencies>

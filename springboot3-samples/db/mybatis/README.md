@@ -88,13 +88,6 @@ The base is built from regular SpringBoot application. The only change you need 
 ### biz
 The biz contains module biz1, which are regular SpringBoot. The packaging plugin method is modified to the sofaArk biz module packaging method, packaged as an ark biz jar package, and the packaging plugin configuration is as follows:
 ```xml
-<!-- The module needs to introduce a special log4j2 adapter -->
-<dependency>
-    <groupId>com.alipay.sofa.koupleless</groupId>
-    <artifactId>koupleless-adapter-log4j2</artifactId>
-    <version>${koupleless.runtime.version}</version>
-    <scope>provided</scope>
-</dependency>
         <!--Database dependency-->
 <dependency>
     <groupId>mysql</groupId>
