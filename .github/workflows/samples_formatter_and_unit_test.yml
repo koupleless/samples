@@ -103,7 +103,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: adopt
-          java-version: 8
+          java-version: 17
           cache: maven
 
       - name: Update Maven version to 3.9.x to enable cross bundle without install
