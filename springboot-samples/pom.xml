@@ -58,6 +58,7 @@
         <module>config/apollo</module>
         <module>config/nacos</module>
         <module>springcloud/gateway</module>
+        <module>scheduler</module>
     </modules>
 
     <dependencyManagement>
