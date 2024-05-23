@@ -43,9 +43,7 @@
         <module>logging/logback/base-logback</module>
         <module>logging/logback/biz1-logback</module>
         <module>web/tomcat</module>
-        <module>web/webflux/demowebflux</module>
-        <module>web/webflux/bizwebflux</module>
-        <module>web/webflux/webflux-integration-test</module>
+        <module>web/webflux</module>
         <module>service</module>
         <module>slimming/log4j2</module>
         <module>msg/kafka/base-kafka</module>

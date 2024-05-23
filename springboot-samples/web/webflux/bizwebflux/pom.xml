@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.alipay.sofa</groupId>
-		<artifactId>springboot-samples</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../../../pom.xml</relativePath> <!-- lookup parent from repository -->
+        <groupId>com.alipay.sofa.web.webflux</groupId>
+        <artifactId>webflux</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.alipay.sofa.web.webflux</groupId>
 	<artifactId>bizwebflux</artifactId>

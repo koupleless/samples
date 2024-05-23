@@ -15,9 +15,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
-        <module>biz</module>
-<!--        <module>integration-test</module>-->
+        <module>bizwebflux</module>
+        <module>demowebflux</module>
+        <module>webflux-integration-test</module>
     </modules>
 
     <dependencyManagement>
