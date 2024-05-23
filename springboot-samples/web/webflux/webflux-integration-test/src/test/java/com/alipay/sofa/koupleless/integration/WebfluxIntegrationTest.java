@@ -31,12 +31,12 @@ public class WebfluxIntegrationTest {
     @BeforeClass
     public static void setUp() {
         TestMultiSpringApplication multiApp = new TestMultiSpringApplication(MultiSpringTestConfig
-                .builder()
-                .baseConfig(
-                        BaseSpringTestConfig.builder().mainClass(DemoWebfluxApplication.class).build())
-                .bizConfigs(
-                        Lists.newArrayList(BizSpringTestConfig.builder().bizName("biz")
-                                .mainClass(BizWebfluxApplication.class).build())).build());
+            .builder()
+            .baseConfig(
+                BaseSpringTestConfig.builder().mainClass(DemoWebfluxApplication.class).build())
+            .bizConfigs(
+                Lists.newArrayList(BizSpringTestConfig.builder().bizName("biz")
+                    .mainClass(BizWebfluxApplication.class).build())).build());
         multiApp.run();
     }
 

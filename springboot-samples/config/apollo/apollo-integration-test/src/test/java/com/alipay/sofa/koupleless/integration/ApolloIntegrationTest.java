@@ -18,7 +18,6 @@ package com.alipay.sofa.koupleless.integration;
 
 import com.alipay.sofa.config.apollo.BaseApolloApplication;
 import com.alipay.sofa.config.apollo.Biz1ApolloApplication;
-import com.alipay.sofa.koupleless.test.suite.biz.TestBizClassLoader;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BaseSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BizSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.MultiSpringTestConfig;
