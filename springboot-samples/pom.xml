@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.alipay.sofa</groupId>
@@ -15,8 +14,8 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <koupleless.runtime.version>1.3.0-SNAPSHOT</koupleless.runtime.version>
-        <sofa.ark.version>2.2.9</sofa.ark.version>
+        <koupleless.runtime.version>1.2.1-SNAPSHOT</koupleless.runtime.version>
+        <sofa.ark.version>2.2.10</sofa.ark.version>
         <disruptor.version>3.4.2</disruptor.version>
         <os.plugin.version>1.7.1</os.plugin.version>
         <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
@@ -55,6 +54,7 @@
         <module>msg/rocketmq/base</module>
         <module>msg/rocketmq/biz1</module>
         <module>db/mybatis</module>
+        <module>db/mongo</module>
         <module>cache/redis/sample-redis-base</module>
         <module>cache/redis/sample-redis-biz</module>
         <module>cache/ehcache</module>
@@ -69,6 +69,7 @@
         <module>cache/redis/redis-integration-test</module>
         <module>msg/kafka/kafka-integration-test</module>
         <module>db/mongo/mongo-integration-test</module>
+        <module>scheduler</module>
     </modules>
 
     <dependencyManagement>
@@ -169,11 +170,6 @@
             <dependency>
                 <groupId>com.alipay.sofa.koupleless</groupId>
                 <artifactId>koupleless-app-starter</artifactId>
-                <version>${koupleless.runtime.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alipay.sofa.koupleless</groupId>
-                <artifactId>koupleless-adapter-log4j2</artifactId>
                 <version>${koupleless.runtime.version}</version>
             </dependency>
 
