@@ -23,13 +23,13 @@
             <artifactId>junit</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alipay.sofa</groupId>
+            <groupId>com.alipay.sofa.web.webflux</groupId>
             <artifactId>demowebflux</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <classifier>lib</classifier>
         </dependency>
         <dependency>
-            <groupId>com.alipay.sofa</groupId>
+            <groupId>com.alipay.sofa.web.webflux</groupId>
             <artifactId>bizwebflux</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
