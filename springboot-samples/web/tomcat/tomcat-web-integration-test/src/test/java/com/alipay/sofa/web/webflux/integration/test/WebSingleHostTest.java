@@ -14,17 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.web.webflux.integration.test;
+package com.alipay.sofa.web.integration.test;
 
-import com.alipay.sofa.koupleless.test.suite.biz.TestBizClassLoader;
-import com.alipay.sofa.koupleless.test.suite.spring.base.BaseClassLoader;
+import com.alipay.sofa.dynamicstock.base.facade.StrategyService;
+import com.alipay.sofa.koupleless.common.api.SpringServiceFinder;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BaseSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.BizSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.model.MultiSpringTestConfig;
 import com.alipay.sofa.koupleless.test.suite.spring.multi.TestMultiSpringApplication;
-import com.alipay.sofa.web.base.BaseApplication;
 import com.alipay.sofa.web.biz1.Biz1Application;
 import com.alipay.sofa.web.biz2.Biz2Application;
+import com.alipay.sofa.web.base.BaseApplication;
 import com.google.common.collect.Lists;
 import lombok.SneakyThrows;
 import okhttp3.OkHttpClient;
@@ -64,20 +64,17 @@ public class WebSingleHostTest {
     public void testContextWebhookPathPrefixIsAdded() throws Throwable {
         Response resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/").get().build()).execute();
-        String respStr = resp.body().string();
-        Assert.assertTrue(respStr.contains("hello to base deploy"));
-        Assert.assertTrue(respStr.endsWith(BaseClassLoader.class.getName()));
+        Assert.assertEquals("hello to base deploy", resp.body().string());
 
         resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/biz1/").get().build()).execute();
-        respStr = resp.body().string();
-        Assert.assertTrue(respStr.contains("hello to biz1 deploy"));
-        Assert.assertTrue(respStr.endsWith(TestBizClassLoader.class.getName()));
+        Assert.assertEquals("hello to biz1 deploy", resp.body().string());
 
         resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
-        respStr = resp.body().string();
-        Assert.assertTrue(respStr.contains("hello to biz2 deploy"));
-        Assert.assertTrue(respStr.endsWith(TestBizClassLoader.class.getName()));
+        Assert.assertEquals("hello to biz2 deploy", resp.body().string());
+
+        Assert.assertEquals("biz1",
+            SpringServiceFinder.getModuleService("biz1", null, StrategyService.class).getAppName());
     }
 }

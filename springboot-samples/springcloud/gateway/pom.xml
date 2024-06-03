@@ -16,9 +16,10 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>base</module>
-		<module>biz1</module>
-		<module>biz2</module>
+		<module>base-cloud-gateway</module>
+		<module>biz1-cloud-gateway</module>
+		<module>biz2-cloud-gateway</module>
+		<module>integration-test-cloud-gateway</module>
 	</modules>
 
 	<properties>

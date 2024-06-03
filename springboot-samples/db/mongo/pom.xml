@@ -14,8 +14,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
-        <module>biz1</module>
-        <module>biz2</module>
+        <module>base-mongo</module>
+        <module>biz1-mongo</module>
+        <module>biz2-mongo</module>
     </modules>
 </project>
