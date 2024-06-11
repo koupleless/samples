@@ -14,7 +14,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
-        <module>biz1</module>
+        <module>base-mybatis</module>
+        <module>biz1-mybatis</module>
+        <module>mybatis-integration-test</module>
     </modules>
 </project>
