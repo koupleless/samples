@@ -52,14 +52,13 @@ public class SampleController {
         try {
             strategyService = SpringServiceFinder.getModuleService("biz1-web-single-host",
                 "0.0.1-SNAPSHOT", "strategyServiceImpl", StrategyService.class);
+            model.addAttribute("appName", strategyService.getAppName());
+            model.addAttribute("productList", strategyService.strategy(initProducts()));
+            return "index";
         } catch (BizRuntimeException e) {
             model.addAttribute("appName", applicationContext.getId());
             return "index";
         }
-
-        model.addAttribute("appName", strategyService.getAppName());
-        model.addAttribute("productList", strategyService.strategy(initProducts()));
-        return "index";
     }
 
     @RequestMapping(value = "/order2", method = RequestMethod.GET)
@@ -68,18 +67,13 @@ public class SampleController {
         try {
             strategyService = SpringServiceFinder.getModuleService("biz2-web-single-host",
                 "0.0.1-SNAPSHOT", "strategyServiceImpl", StrategyService.class);
+            model.addAttribute("appName", strategyService.getAppName());
+            model.addAttribute("productList", strategyService.strategy(initProducts()));
+            return "index";
         } catch (BizRuntimeException e) {
             model.addAttribute("appName", applicationContext.getId());
             return "index";
         }
-
-        if (strategyService == null) {
-            return "index";
-        }
-
-        model.addAttribute("appName", strategyService.getAppName());
-        model.addAttribute("productList", strategyService.strategy(initProducts()));
-        return "index";
     }
 
     /**

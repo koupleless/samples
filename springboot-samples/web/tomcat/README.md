@@ -8,7 +8,9 @@ English | [简体中文](./README-zh_CN.md)
 
 1. tomcat with single host mode, for detail principle please
    refer [here](https://www.sofastack.tech/projects/sofa-boot/sofa-ark-multi-web-component-deploy/)
-2. dynamic deploy / static deploy for multi web app
+2. dynamic deploy / static deploy for multi web app 
+3. please notice that we need to install maven in your local environment, and the version should be greater than 3.9.0
+
 
 # Experiment application
 

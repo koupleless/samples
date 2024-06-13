@@ -6,8 +6,9 @@
 
 # tomcat 单 host 模式，动态 / 静态部署多个 web 应用
 
-tomcat 单host
 模式原理介绍详看[这里](https://www.sofastack.tech/projects/sofa-boot/sofa-ark-multi-web-component-deploy/)
+注意需要本地安装 maven，且版本大于 3.9.0
+
 
 # 实验应用
 

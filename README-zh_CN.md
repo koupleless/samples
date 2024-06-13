@@ -6,6 +6,8 @@
 
 ## Koupleless 模块中间件使用样例清单
 
+注意需要本地安装 maven，且版本大于 3.9.0
+
 | 框架          | 中间件                    | 说明                                          | 代码样例                                                                                                                                                     |
 |-------------|------------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | springboot  | spring context manager | 跨模块bean调用                                   | [samples/springboot-samples/service](https://github.com/koupleless/koupleless/tree/main/samples/springboot-samples/service)                              |  

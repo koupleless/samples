@@ -5,6 +5,9 @@ English | [简体中文](./README-zh_CN.md)
 </div>
 
 # Experiment: Base and Module call each other
+
+please notice that we need to install maven in your local environment, and the version should be greater than 3.9.0
+
 ## Experiment application
 ### base
 The base is built from regular SpringBoot application. The only change you need to do is to add the following dependencies in pom
