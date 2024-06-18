@@ -35,7 +35,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Test for springboot samples
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
+        run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./springboot-samples/
 
       - name: Check code formatter
@@ -62,7 +62,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Test for springboot samples
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
+        run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./springboot1-samples/
 
       - name: Check code formatter
@@ -89,7 +89,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Test for sofaboot samples
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
+        run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./sofaboot-samples
 
       - name: Check code formatter
@@ -116,7 +116,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Test for sofaboot4 samples
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
+        run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./sofaboot4-samples
 
       - name: Check code formatter
@@ -143,7 +143,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Test for dubbo samples
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
+        run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./dubbo-samples
 
       - name: Check code formatter
@@ -170,7 +170,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Test for dubbo32 samples
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
+        run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./dubbo32-samples
 
       - name: Check code formatter
@@ -197,7 +197,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Test for springboot3 samples
-        run: mvn clean install -DskipTests -Dmaven.javadoc.skip=true -am -B -U
+        run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
         working-directory: ./springboot3-samples
 
       - name: Check code formatter
