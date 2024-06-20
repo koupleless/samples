@@ -86,6 +86,26 @@
                     </execution>
                 </executions>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>com.alipay.sofa</groupId>-->
+<!--                <artifactId>sofa-ark-maven-plugin</artifactId>-->
+<!--                <version>2.2.11</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash;要打包暴露给模块的java文件，支持后缀*通配，逗号分割，不要换行不要有空格&ndash;&gt;-->
+<!--                    <javaFiles>com.ipay.iexpmhome.common.*,com.ipay.iexpmhome.biz.*,com.ipay.iexpmhome.aop.*,com.ipay.iexpmhome.facade.*,com.ipay.iexpmhome.template.*,com.ipay.iexpmhome.core.*,com.ipay.iexpmhome.integration.*,com.ipay.iexpmhome.service.*,com.ipay.iexpmhome.web.*</javaFiles>-->
+<!--                    &lt;!&ndash;生成jar的artifactId（groupId和基座一致），这里需要修改！！！&ndash;&gt;-->
+<!--                    <artifactId>iexpmhome-all-dependencies</artifactId>-->
+<!--                    &lt;!&ndash;生成jar的版本号&ndash;&gt;-->
+<!--                    <version>1.0.0.20240530</version>-->
+<!--                    &lt;!&ndash;排除掉哪些依赖（groupId），支持后缀*通配，逗号分割，不要换行不要有空格&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <excludeGroupIds>io.netty</excludeGroupIds>&ndash;&gt;-->
+<!--                    &lt;!&ndash;排除掉哪些依赖（artifactId），支持后缀*通配，逗号分割，不要换行不要有空格&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <excludeArtifactIds>ehcache</excludeArtifactIds>&ndash;&gt;-->
+<!--                    &lt;!&ndash;调试用，改成false即可看到打包中间产物&ndash;&gt;-->
+<!--                    <cleanAfterPackage>true</cleanAfterPackage>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 </project>

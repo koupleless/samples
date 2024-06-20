@@ -1,0 +1,2 @@
+tripleFilter=com.alipay.sofa.rpc.dubbo3.triplebiz.filter.TripleFilter
+baseFilter=com.alipay.sofa.rpc.dubbo3.triplebiz.filter.BaseFilter

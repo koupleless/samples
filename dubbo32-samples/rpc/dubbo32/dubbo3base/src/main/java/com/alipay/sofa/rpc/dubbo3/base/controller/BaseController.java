@@ -22,7 +22,6 @@ import com.alipay.sofa.rpc.dubbo3.model.CommonService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.rpc.Constants;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,14 +40,14 @@ public class BaseController {
      * 通过远程rpc调用模块triplebiz的CommonService服务
      * check = false是因为启动时还没安装模块
      */
-    @DubboReference(group = "triplebiz", scope = Constants.SCOPE_LOCAL, check = false)
+    @DubboReference(group = "triplebiz", scope = Constants.SCOPE_LOCAL, check = false, filter = "baseFilter")
     private CommonService commonServiceLocal;
 
     /**
      * 通过远程rpc调用模块triplebiz的CommonService服务
      * check = false是因为启动时还没安装模块
      */
-    @DubboReference(group = "triplebiz", scope = Constants.SCOPE_REMOTE, check = false)
+    @DubboReference(group = "triplebiz", scope = Constants.SCOPE_REMOTE, check = false, filter = "baseFilter")
     private CommonService commonServiceRemote;
 
     @RequestMapping(value = "/triplebiz/injvm", method = RequestMethod.GET)

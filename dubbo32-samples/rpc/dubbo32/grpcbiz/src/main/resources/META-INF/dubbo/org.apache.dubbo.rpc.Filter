@@ -1,0 +1,1 @@
+grpcFilter=com.alipay.sofa.rpc.dubbo3.grpcbiz.filter.GRpcFilter

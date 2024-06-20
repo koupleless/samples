@@ -26,7 +26,7 @@ import org.apache.dubbo.config.annotation.DubboService;
  * @author syd
  * @version TripleBizCommonService.java, v 0.1 2023年11月05日 16:02 syd
  */
-@DubboService(group = "triplebiz")
+@DubboService(group = "triplebiz", filter = { "tripleFilter", "baseFilter" })
 public class TripleBizCommonService implements CommonService {
     @Override
     public CommonResponse sayHello(CommonRequest request) {

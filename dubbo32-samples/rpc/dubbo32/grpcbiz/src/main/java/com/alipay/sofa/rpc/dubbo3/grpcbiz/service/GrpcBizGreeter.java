@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  * @author syd
  * @version GrpcBizGreeter.java, v 0.1 2023年11月06日 19:41 syd
  */
-@DubboService(group = "grpcbiz")
+@DubboService(group = "grpcbiz", filter = { "grpcFilter", "baseFilter" })
 public class GrpcBizGreeter extends DubboGreeterTriple.GreeterImplBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(GrpcBizGreeter.class);
 

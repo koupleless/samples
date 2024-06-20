@@ -14,23 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.rpc.dubbo3.triplebiz.service;
+package com.alipay.sofa.rpc.dubbo3.base;
 
-import com.alipay.sofa.rpc.dubbo3.triplebiz.model.DemoRequest;
-import com.alipay.sofa.rpc.dubbo3.triplebiz.model.DemoResponse;
-import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.model.ApplicationModel;
+import org.apache.dubbo.rpc.model.FrameworkModel;
+import org.apache.dubbo.rpc.model.ModuleModel;
+import org.apache.dubbo.rpc.model.ScopeModelInitializer;
 
 /**
- *
- * @author syd
- * @version FastJson2DemoService.java, v 0.1 2023年11月08日 12:52 syd
+ * @author lianglipeng.llp@alibaba-inc.com
+ * @version $Id: ClassloaderScopeModelInitializer.java, v 0.1 2024年05月27日 14:50 立蓬 Exp $
  */
-@DubboService(group = "fastjson2", filter = "tripleFilter")
-public class FastJson2DemoService implements DemoService {
+public class ClassloaderScopeModelInitializer implements ScopeModelInitializer {
     @Override
-    public DemoResponse sayHello(DemoRequest request) {
-        DemoResponse response = new DemoResponse();
-        response.setMessage(FastJson2DemoService.class.getName() + ": Hello," + request.getName());
-        return response;
+    public void initializeFrameworkModel(FrameworkModel frameworkModel) {
+
+    }
+
+    @Override
+    public void initializeApplicationModel(ApplicationModel applicationModel) {
+
+    }
+
+    @Override
+    public void initializeModuleModel(ModuleModel moduleModel) {
+        moduleModel.addClassLoader(Thread.currentThread().getContextClassLoader());
     }
 }

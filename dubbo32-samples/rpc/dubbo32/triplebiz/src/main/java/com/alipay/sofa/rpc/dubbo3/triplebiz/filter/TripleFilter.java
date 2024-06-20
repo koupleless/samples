@@ -14,23 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.rpc.dubbo3.triplebiz.service;
+package com.alipay.sofa.rpc.dubbo3.triplebiz.filter;
 
-import com.alipay.sofa.rpc.dubbo3.triplebiz.model.DemoRequest;
-import com.alipay.sofa.rpc.dubbo3.triplebiz.model.DemoResponse;
-import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.Filter;
+import org.apache.dubbo.rpc.Invocation;
+import org.apache.dubbo.rpc.Invoker;
+import org.apache.dubbo.rpc.Result;
+import org.apache.dubbo.rpc.RpcException;
 
 /**
- *
- * @author syd
- * @version FastJson2DemoService.java, v 0.1 2023年11月08日 12:52 syd
+ * @author lianglipeng.llp@alibaba-inc.com
+ * @version $Id: TripleFilter.java, v 0.1 2024年05月27日 12:11 立蓬 Exp $
  */
-@DubboService(group = "fastjson2", filter = "tripleFilter")
-public class FastJson2DemoService implements DemoService {
+public class TripleFilter implements Filter {
     @Override
-    public DemoResponse sayHello(DemoRequest request) {
-        DemoResponse response = new DemoResponse();
-        response.setMessage(FastJson2DemoService.class.getName() + ": Hello," + request.getName());
-        return response;
+    public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
+        System.out.println("TripleFilter.invoke");
+        return invoker.invoke(invocation);
     }
 }
