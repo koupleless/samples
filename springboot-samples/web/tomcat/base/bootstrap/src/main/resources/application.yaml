@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: base
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+
+# Uncomment and adjust the context path if needed
+# server:
+#   servlet:
+#     context-path: /base
+
+logging:
+  file:
+    path: ./web/tomcat/logs
+
+# use yaml is easier for test, such as comment koupleless.web.gateway.forwards[0].*
+# biz1-prefix and biz2-prefix is the prefix for domain biz1-prefix.xx.com and biz2-prefix.xx.com
+koupleless:
+  web:
+    gateway:
+      forwards:
+        - contextPath: biz1
+          hosts:
+            - biz1-prefix
+#          paths:
+#            - from: /idx1
+#              to: /
+#            - from: /t1
+#              to: /timestamp
+        - contextPath: biz2
+          hosts:
+            - biz2-prefix
+#          paths:
+#            - from: /idx2
+#              to: /
+#            - from: /t2
+#              to: /timestamp
