@@ -89,6 +89,9 @@ biz 包含两个模块，分别为 biz1 和 biz2, 都是普通 springboot，修�
 
 **暂时需要自行安装master分支的最新sofa-ark，预计在 sofa-ark 2.2.8 版本可用。**
 
+**forward 支持 `hosts` 模式和 `paths` 模式。相同的 `contextPath` 不能同时配置 `hosts` 和 `paths` 模式。
+但是`contextPath` biz1可以配置为 `hosts` 模式而 `contextPath` biz2 配置为 `paths` 模式**
+
 文件中，配置的是forward规则的list，单条forward规则数据结构如下：
 
 | 字段名                | 字段类型   | 可否为空 | 说明                     |
@@ -278,9 +281,11 @@ curl http://localhost:8080/biz1/
 curl http://localhost:8080/biz2/
 ```
 
-# 实验内容3：内部转发
+# 实验内容3：内部转发（`paths` 模式）
 
-部署成功之后，就可以开始验证内部转发了。
+部署成功之后，就可以开始验证内部转发了（`paths` 模式）。
+
+下面的实验只能配置为 forward 的 `paths` 模式。
 
 ```shell
 curl localhost:8080/idx1
@@ -302,6 +307,50 @@ curl localhost:8080/t1
 
 ```shell
 curl localhost:8080/t2
+
+/biz2 now is $now
+```
+
+# 实验4：内部转发 (`hosts` 模式)
+
+```yaml
+koupleless:
+  web:
+    gateway:
+      forwards:
+        - contextPath: biz1
+          hosts:
+            - biz1-prefix
+        - contextPath: biz2
+          hosts:
+            - biz2-prefix
+```
+
+例如，应用合并之前，`biz1`的域名是`biz1-prefix.xx.com`，`biz2`的域名是`biz2-prefix.xx.com`，基座的域名是`base-prefix.xx.com`。
+本地的`/etc/hosts`可能是这样的：
+
+```shell
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1   biz1-prefix.xx.com
+127.0.0.1   biz2-prefix.xx.com
+127.0.0.1   base-prefix.xx.com
+```
+
+部署成功之后，就可以开始验证内部转发了（`hosts` 模式）。
+
+```shell
+curl biz1-prefix.xx.com:8080/timestamp
+
+/biz1 now is $now
+```
+
+```shell
+curl biz2-prefix.xx.com:8080/timestamp
 
 /biz2 now is $now
 ```

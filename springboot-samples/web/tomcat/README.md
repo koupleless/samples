@@ -94,6 +94,9 @@ At this time, the request is sent to the base application and needs to be forwar
 **It is temporarily necessary to install the latest "sofa-ark" of the master branch, which is expected to be available
 in "sofa-ark" version 2.2.8**
 
+**Forwarding supports both `hosts` mode and `paths` mode. The same `contextPath` cannot have both `hosts` and `paths` 
+modes simultaneously. But `contextPath` biz1 can be in `hosts` mode and `contextPath` biz2 can be in `paths` mode.**
+
 In this file, you configure a list of forward rules. The data structure of a single forward rule is as follows:
 
 | Field Name         | Field Type | Nullable | Description                                                |
@@ -288,9 +291,30 @@ curl http://localhost:8080/biz1/
 curl http://localhost:8080/biz2/
 ```
 
-# Experiment3：the internal forwarding
+# Experiment3：the internal forwarding (`paths` mode)
 
-After the deployment is successful, you can start to verify the internal forwarding.
+After the deployment is successful, you can start to verify the internal forwarding(`paths` mode).
+
+The following experiment can only be configured in the forward `paths` mode.
+
+```yaml
+koupleless:
+  web:
+    gateway:
+      forwards:
+        - contextPath: biz1
+          paths:
+            - from: /idx1
+              to: /
+            - from: /t1
+              to: /timestamp
+        - contextPath: biz2
+          paths:
+            - from: /idx2
+              to: /
+            - from: /t2
+              to: /timestamp
+```
 
 ```shell
 curl localhost:8080/idx1
@@ -312,6 +336,50 @@ curl localhost:8080/t1
 
 ```shell
 curl localhost:8080/t2
+
+/biz2 now is $now
+```
+# Experiment4：the internal forwarding (`hosts` mode)
+
+```yaml
+koupleless:
+  web:
+    gateway:
+      forwards:
+        - contextPath: biz1
+          hosts:
+            - biz1-prefix
+        - contextPath: biz2
+          hosts:
+            - biz2-prefix
+```
+
+For example, before the applications were merged, the domain for `biz1` was `biz1-prefix.xx.com`, 
+the domain for `biz2` was `biz2-prefix.xx.com`, and the domain for the `base` was `base-prefix.xx.com`.
+The local `/etc/hosts` file might look like this:
+
+```shell
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1   biz1-prefix.xx.com
+127.0.0.1   biz2-prefix.xx.com
+127.0.0.1   base-prefix.xx.com
+```
+
+After the deployment is successful, you can start to verify the internal forwarding(`hosts` mode).
+
+```shell
+curl biz1-prefix.xx.com:8080/timestamp
+
+/biz1 now is $now
+```
+
+```shell
+curl biz2-prefix.xx.com:8080/timestamp
 
 /biz2 now is $now
 ```
