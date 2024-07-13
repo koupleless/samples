@@ -22,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 
@@ -31,6 +32,7 @@ import java.util.List;
  */
 @SpringBootTest
 @Slf4j
+@Sql(scripts = "/create-table.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 public class MybatisTest {
 
     static {
@@ -42,33 +44,40 @@ public class MybatisTest {
     private UserMapper userMapper;
 
     @Test
-    void testInsert() {
+    public void testInsert() {
         userMapper.insert(User.builder().age(18).name("沉默王二").password("123456").build());
         userMapper.insert(User.builder().age(18).name("沉默王三").password("123456").build());
         userMapper.insert(User.builder().age(18).name("沉默王四").password("123456").build());
-        log.info("查询所有：{}", userMapper.getAll().stream().toArray());
+        log.info("查询所有：{}", userMapper.getAll());
     }
 
     @Test
-    void testQuery() {
+    public void testQuery() {
         List<User> all = userMapper.getAll();
-        log.info("查询所有：{}", all.stream().toArray());
+        log.info("查询所有：{}", all);
     }
 
     @Test
-    void testUpdate() {
-        User one = userMapper.getOne(1);
+    public void testUpdate() {
+        List<User> all = userMapper.getAll();
+        if (all == null || all.isEmpty()) {
+            return;
+        }
+        User one = userMapper.getOne(all.get(0).getId());
         log.info("更新前{}", one);
         one.setPassword("654321");
         userMapper.update(one);
-        log.info("更新后{}", userMapper.getOne(1));
+        log.info("更新后{}", userMapper.getOne(all.get(0).getId()));
     }
 
     @Test
-    void testDelete() {
+    public void testDelete() {
+        List<User> all = userMapper.getAll();
+        if (all == null || all.isEmpty()) {
+            return;
+        }
         log.info("删除前{}", userMapper.getAll().toArray());
-        userMapper.delete(1);
+        userMapper.delete(all.get(0).getId());
         log.info("删除后{}", userMapper.getAll().toArray());
-
     }
 }

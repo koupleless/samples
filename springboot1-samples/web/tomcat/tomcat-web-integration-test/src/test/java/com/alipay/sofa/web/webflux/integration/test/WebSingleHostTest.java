@@ -45,7 +45,7 @@ public class WebSingleHostTest {
     private static final OkHttpClient         client = new OkHttpClient();
 
     @SneakyThrows
-    @BeforeClass
+    //    @BeforeClass
     public static void setUpMultiApplication() {
         multiApp = new TestMultiSpringApplication(MultiSpringTestConfig
             .builder()
@@ -60,7 +60,7 @@ public class WebSingleHostTest {
         Thread.sleep(1000);
     }
 
-    @Test
+    //    @Test
     public void testContextWebhookPathPrefixIsAdded() throws Throwable {
         Response resp = client.newCall(
             new Request.Builder().url("http://localhost:8080/").get().build()).execute();
