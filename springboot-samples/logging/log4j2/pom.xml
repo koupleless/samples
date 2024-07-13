@@ -6,17 +6,17 @@
         <groupId>com.alipay.sofa</groupId>
         <artifactId>springboot-samples</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
+        <relativePath>../../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.alipay.sofa.service</groupId>
-    <artifactId>cross-biz-calling</artifactId>
+    <groupId>com.alipay.sofa.logging</groupId>
+    <artifactId>log4j2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
-        <module>biz1</module>
-        <module>biz2</module>
-        <module>cross-biz-calling-integration-test</module>
+        <module>base-log4j2</module>
+        <module>biz1-log4j2</module>
+        <module>biz2-log4j2</module>
+        <module>log4j2-integration-test</module>
     </modules>
 </project>

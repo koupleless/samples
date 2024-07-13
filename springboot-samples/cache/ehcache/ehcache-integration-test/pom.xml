@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>encache-integration-test</artifactId>
+    <artifactId>ehcache-integration-test</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -22,11 +22,6 @@
             <groupId>com.alipay.sofa.koupleless</groupId>
             <artifactId>koupleless-test-suite</artifactId>
             <version>${koupleless.runtime.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>

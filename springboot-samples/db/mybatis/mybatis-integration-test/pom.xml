@@ -20,11 +20,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.alipay.sofa.koupleless</groupId>
             <artifactId>koupleless-test-suite</artifactId>
             <version>${koupleless.runtime.version}</version>

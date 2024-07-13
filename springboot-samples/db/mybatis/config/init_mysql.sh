@@ -28,8 +28,8 @@ done
 # 初始化数据库和表的 SQL 语句
 # 执行 SQL 语句
 echo "Initializing database and table..."
-docker exec -i $MYSQL_CONTAINER_NAME mysql -u root -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < ../base/create-table.sql
-docker exec -i $MYSQL_CONTAINER_NAME mysql -u root -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < ../biz1/create-table.sql
+docker exec -i $MYSQL_CONTAINER_NAME mysql -u root -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < ../base-mybatis/create-table.sql
+docker exec -i $MYSQL_CONTAINER_NAME mysql -u root -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < ../biz1-mybatis/create-table.sql
 
 echo "Fetching the list of tables in the database..."
 TABLES=$(docker exec $MYSQL_CONTAINER_NAME mysql -u root -p$MYSQL_ROOT_PASSWORD -D $MYSQL_DATABASE -e "SHOW TABLES;" | grep -v "Tables_in")

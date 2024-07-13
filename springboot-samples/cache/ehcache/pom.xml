@@ -17,7 +17,7 @@
         <module>base-ehcache</module>
         <module>biz1-ehcache</module>
         <module>biz2-ehcache</module>
-        <module>encache-integration-test</module>
+        <module>ehcache-integration-test</module>
     </modules>
 
 </project>

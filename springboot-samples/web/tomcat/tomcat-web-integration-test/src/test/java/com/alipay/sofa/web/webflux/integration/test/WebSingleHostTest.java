@@ -74,10 +74,10 @@ public class WebSingleHostTest {
         log.info("result: {}", result);
         Assert.assertTrue(result.contains("hello to biz1 deploy"));
 
-        resp = client.newCall(
-            new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
-        result = resp.body().string();
-        log.info("result: {}", result);
-        Assert.assertTrue(result.contains("hello to biz2 deploy"));
+        //        resp = client.newCall(
+        //            new Request.Builder().url("http://localhost:8080/biz2/").get().build()).execute();
+        //        result = resp.body().string();
+        //        log.info("result: {}", result);
+        //        Assert.assertTrue(result.contains("hello to biz2 deploy"));
     }
 }

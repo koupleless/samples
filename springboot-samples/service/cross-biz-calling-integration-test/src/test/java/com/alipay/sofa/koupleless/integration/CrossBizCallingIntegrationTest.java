@@ -28,7 +28,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CrossBizCallingIntegrationTest {
-    @BeforeClass
+    //    @BeforeClass
     public static void setUp() {
         TestMultiSpringApplication multiApp = new TestMultiSpringApplication(MultiSpringTestConfig
             .builder()

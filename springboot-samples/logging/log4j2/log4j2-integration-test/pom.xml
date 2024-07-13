@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.alipay.sofa</groupId>
-        <artifactId>springboot-samples</artifactId>
+        <groupId>com.alipay.sofa.logging</groupId>
+        <artifactId>log4j2</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <artifactId>log4j2-integration-test</artifactId>
@@ -23,11 +23,6 @@
             <groupId>com.alipay.sofa.koupleless</groupId>
             <artifactId>koupleless-test-suite</artifactId>
             <version>${koupleless.runtime.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.alipay.sofa.logging.log4j2</groupId>

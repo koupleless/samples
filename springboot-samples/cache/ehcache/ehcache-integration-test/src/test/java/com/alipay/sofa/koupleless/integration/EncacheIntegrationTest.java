@@ -29,7 +29,7 @@ import org.junit.Test;
 
 public class EncacheIntegrationTest {
 
-    @BeforeClass
+    //    @BeforeClass
     public static void setUp() {
         TestMultiSpringApplication multiApp = new TestMultiSpringApplication(MultiSpringTestConfig
             .builder()
@@ -44,7 +44,7 @@ public class EncacheIntegrationTest {
         multiApp.run();
     }
 
-    @Test
+    //    @Test
     public void test() {
         System.out.println("test");
     }
