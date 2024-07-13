@@ -47,6 +47,7 @@ jobs:
           sudo apt-get install redis-server -y
           sudo systemctl start redis-server
           docker-compose  -f ./springboot-samples/config/apollo/config/docker-compose.yml up -d
+          /bin/sh ./springboot-samples/db/mybatis/config/init_mysql.sh
 
       - name: Test for springboot samples
         run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
@@ -74,7 +75,7 @@ jobs:
           tar xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
-          
+
       - name: Test Env prepare
         run: |
           sudo apt-get update >>/tmp/envprepare.out
@@ -88,6 +89,7 @@ jobs:
           sudo apt-get install redis-server -y
           sudo systemctl start redis-server
           docker-compose  -f ./springboot-samples/config/apollo/config/docker-compose.yml up -d
+          /bin/sh ./springboot-samples/db/mybatis/config/init_mysql.sh
 
       - name: Test for springboot samples
         run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
@@ -115,7 +117,7 @@ jobs:
           tar xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
-          
+
       - name: Test Env prepare
         run: |
           sudo apt-get update >>/tmp/envprepare.out
@@ -129,6 +131,7 @@ jobs:
           sudo apt-get install redis-server -y
           sudo systemctl start redis-server
           docker-compose  -f ./springboot-samples/config/apollo/config/docker-compose.yml up -d
+          /bin/sh ./springboot-samples/db/mybatis/config/init_mysql.sh
 
       - name: Test for sofaboot samples
         run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
@@ -156,7 +159,7 @@ jobs:
           tar xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
-          
+
       - name: Test Env prepare
         run: |
           sudo apt-get update >>/tmp/envprepare.out
@@ -170,6 +173,7 @@ jobs:
           sudo apt-get install redis-server -y
           sudo systemctl start redis-server
           docker-compose  -f ./springboot-samples/config/apollo/config/docker-compose.yml up -d
+          /bin/sh ./springboot-samples/db/mybatis/config/init_mysql.sh
 
       - name: Test for sofaboot4 samples
         run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
@@ -197,7 +201,7 @@ jobs:
           tar xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
-          
+
       - name: Test Env prepare
         run: |
           sudo apt-get update >>/tmp/envprepare.out
@@ -211,6 +215,7 @@ jobs:
           sudo apt-get install redis-server -y
           sudo systemctl start redis-server
           docker-compose  -f ./springboot-samples/config/apollo/config/docker-compose.yml up -d
+          /bin/sh ./springboot-samples/db/mybatis/config/init_mysql.sh
 
       - name: Test for dubbo samples
         run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
@@ -238,7 +243,7 @@ jobs:
           tar xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
-          
+
       - name: Test Env prepare
         run: |
           sudo apt-get update >>/tmp/envprepare.out
@@ -252,6 +257,7 @@ jobs:
           sudo apt-get install redis-server -y
           sudo systemctl start redis-server
           docker-compose  -f ./springboot-samples/config/apollo/config/docker-compose.yml up -d
+          /bin/sh ./springboot-samples/db/mybatis/config/init_mysql.sh
 
       - name: Test for dubbo32 samples
         run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
@@ -279,7 +285,7 @@ jobs:
           tar xzvf apache-maven-${MAVEN_VERSION}-bin.tar.gz
           echo "MAVEN_HOME=$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}" >> $GITHUB_ENV
           echo "$GITHUB_WORKSPACE/apache-maven-${MAVEN_VERSION}/bin" >> $GITHUB_PATH
-          
+
       - name: Test Env prepare
         run: |
           sudo apt-get update >>/tmp/envprepare.out
@@ -293,6 +299,7 @@ jobs:
           sudo apt-get install redis-server -y
           sudo systemctl start redis-server
           docker-compose  -f ./springboot-samples/config/apollo/config/docker-compose.yml up -d
+          /bin/sh ./springboot-samples/db/mybatis/config/init_mysql.sh
 
       - name: Test for springboot3 samples
         run: mvn clean install -Dmaven.javadoc.skip=true -am -B -U
