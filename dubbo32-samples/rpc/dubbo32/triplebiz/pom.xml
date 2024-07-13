@@ -71,6 +71,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.alipay.sofa.koupleless</groupId>
             <artifactId>koupleless-app-starter</artifactId>
             <version>${koupleless.runtime.version}</version>
