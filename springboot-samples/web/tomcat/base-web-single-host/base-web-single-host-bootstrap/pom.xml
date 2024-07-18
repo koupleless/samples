@@ -20,6 +20,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.alipay.sofa.koupleless</groupId>
+            <artifactId>koupleless-ext-web-gateway</artifactId>
+            <version>${koupleless.runtime.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.alipay.sofa</groupId>
             <artifactId>web-ark-plugin</artifactId>
         </dependency>
