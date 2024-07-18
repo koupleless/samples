@@ -9,9 +9,9 @@ cd $BASE_DIR && mvn clean package -Dmaven.test.skip=true
 # Step 2: Move the JAR files to the specified locations
 echo "Moving JAR files..."
 mkdir -p $BASE_DIR/static-deploy-demo/biz
-mv $BASE_DIR/base/bootstrap/target/*.jar $BASE_DIR/static-deploy-demo/
-mv $BASE_DIR/biz1/target/*-biz.jar $BASE_DIR/static-deploy-demo/biz/
-mv $BASE_DIR/biz2/target/*-biz.jar $BASE_DIR/static-deploy-demo/biz/
+mv $BASE_DIR/base-web-single-host/base-web-single-host-bootstrap/target/*.jar $BASE_DIR/static-deploy-demo/
+mv $BASE_DIR/biz1-web-single-host/target/*-biz.jar $BASE_DIR/static-deploy-demo/biz/
+mv $BASE_DIR/biz2-web-single-host/target/*-biz.jar $BASE_DIR/static-deploy-demo/biz/
 
 # Step 3: Navigate to the deploy directory and launch the base jar
 cd $BASE_DIR/static-deploy-demo
