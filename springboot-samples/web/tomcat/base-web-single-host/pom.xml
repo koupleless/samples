@@ -14,6 +14,6 @@
 
 	<modules>
 		<module>base-web-single-host-bootstrap</module>
-		<module>facade</module>
+		<module>base-web-single-host-facade</module>
 	</modules>
 </project>
