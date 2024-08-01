@@ -1,0 +1,158 @@
+<div align="center">
+
+[English](./README.md) | 简体中文
+
+</div>
+
+# 实验内容  模块与基座相
+
+注意需要本地安装 maven，且版本大于 3.9.0
+
+## 实验应用
+### base
+base 为普通 springboot 改造成的基座，改造内容为在 pom 里增加如下依赖
+```xml
+
+<dependency>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-starter</artifactId>
+    <version>${koupleless.runtime.version}</version>
+</dependency>
+<!-- end 动态模块相关依赖 -->
+
+<!-- 这里添加 tomcat 单 host 模式部署多web应用的依赖 -->
+<dependency>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>web-ark-plugin</artifactId>
+</dependency>
+<!-- end 单 host 部署的依赖 -->
+
+<!-- 为了让三方依赖和 koupleless 模式适配，需要引入以下构建插件 -->
+<plugin>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-base-build-plugin</artifactId>
+    <version>${koupleless.runtime.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>add-patch</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+### biz
+
+1. biz 是普通 springboot，provided 引入 security 依赖后, 模块无法复用基座的 security 配置和 html 文件，所以模块需要添加自己的 SecurityConfig 等。
+2. 修改打包插件方式为 sofaArk biz 模块打包方式，打包为 ark biz jar 包，打包插件配置如下：
+
+```xml
+<dependency>
+    <groupId>com.alipay.sofa.koupleless</groupId>
+    <artifactId>koupleless-app-starter</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>org.thymeleaf.extras</groupId>
+    <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+    <version>3.1.2.RELEASE</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- 修改打包插件为 sofa-ark biz 打包插件，打包成 ark biz jar -->
+<plugin>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>sofa-ark-maven-plugin</artifactId>
+    <version>${sofa.ark.version}</version>
+    <executions>
+        <execution>
+            <id>default-cli</id>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <skipArkExecutable>true</skipArkExecutable>
+        <outputDirectory>./target</outputDirectory>
+        <bizName>${bizName}</bizName>
+        <!-- 单host下需更换 web context path -->
+        <webContextPath>${bizName}</webContextPath>
+        <declaredMode>true</declaredMode>
+    </configuration>
+</plugin>
+```
+注意这里将不同 biz 的web context path 修改成不同的值，以此才能成功在一个 tomcat host 里安装多个 web 应用。
+
+
+## 实验步骤
+
+### 启动基座应用 base
+
+可以使用 IDEA run 启动基座应用
+
+### 打包模块应用 biz1
+
+在samples/springboot-samples/security/security-biz1 目录下执行 mvn clean package -Dmaven.test.skip=true 进行模块打包， 打包完成后可在各 bundle 的 target 目录里查看到打包生成的 ark-biz jar 包
+
+### 安装模块应用 biz1
+
+#### 执行 curl 或者 arkctl 命令安装 biz1
+
+```shell
+curl --location --request POST 'localhost:1238/installBiz' \
+--header 'Content-Type: application/json' \
+--data '{
+    "bizName": "biz",
+    "bizVersion": "0.0.1-SNAPSHOT",
+    // local path should start with file://, alse support remote url which can be downloaded
+    "bizUrl": "file:///Users/xxxx/xxxx/Code/koupleless/samples/springboot-samples/service/sample-service-biz/biz-bootstrap/target/biz-bootstrap-0.0.1-SNAPSHOT-ark-biz.jar"
+}'
+```
+
+or
+
+```shell
+arkctl deploy /path/to/security-biz1-0.0.1-SNAPSHOT-ark-biz.jar
+```
+
+### 发起请求验证
+
+#### 验证基座调用模块
+
+1. 访问基座 base 的 web 服务
+```shell
+curl http://localhost:8080
+```
+跳转到登录页面，输入账号密码后，返回 `hello to base deploy`
+
+2. 访问 biz1 的 web 服务
+
+```shell
+curl http://localhost:8080/biz1/
+```
+跳转到登录页面，输入账号密码后，返回 `hello to biz1 deploy`
+
+## 注意事项
+
+1. 这里主要使用简单应用做验证，如果复杂应用，需要注意模块做好瘦身，基座有的依赖，模块尽可能设置成 provided，尽可能使用基座的依赖。
+2. 这里验证模块功能时，web接口后需要加上斜号，例如curl http://localhost:8080/biz1/ ，而不是 http://localhost:8080/biz1
+
