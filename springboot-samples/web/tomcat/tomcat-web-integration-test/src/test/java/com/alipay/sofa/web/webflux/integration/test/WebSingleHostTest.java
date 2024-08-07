@@ -57,7 +57,6 @@ public class WebSingleHostTest {
                     BizSpringTestConfig.builder().bizName("biz2").mainClass(Biz2Application.class)
                         .build())).build());
         multiApp.run();
-        Thread.sleep(1000);
     }
 
     @Test
