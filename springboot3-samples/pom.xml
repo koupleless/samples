@@ -10,12 +10,12 @@
     <packaging>pom</packaging>
 
     <properties>
-        <spring.boot.version>3.0.9</spring.boot.version>
+        <spring.boot.version>3.2.6</spring.boot.version>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <sofa.ark.version>3.0.7</sofa.ark.version>
-        <koupleless.runtime.version>2.0.4</koupleless.runtime.version>
+        <sofa.ark.version>3.1.6</sofa.ark.version>
+        <koupleless.runtime.version>2.1.5</koupleless.runtime.version>
         <disruptor.version>3.4.2</disruptor.version>
         <os.plugin.version>1.7.1</os.plugin.version>
         <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
