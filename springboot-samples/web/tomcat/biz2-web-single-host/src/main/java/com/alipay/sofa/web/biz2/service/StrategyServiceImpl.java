@@ -16,8 +16,8 @@
  */
 package com.alipay.sofa.web.biz2.service;
 
-import com.alipay.sofa.dynamicstock.base.facade.StrategyService;
-import com.alipay.sofa.dynamicstock.base.model.ProductInfo;
+import com.alipay.sofa.web.base.facade.StrategyService;
+import com.alipay.sofa.web.base.model.ProductInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;

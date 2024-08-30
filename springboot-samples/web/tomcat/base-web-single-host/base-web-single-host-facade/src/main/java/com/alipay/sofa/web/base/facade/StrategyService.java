@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.dynamicstock.base.facade;
+package com.alipay.sofa.web.base.facade;
 
-import com.alipay.sofa.dynamicstock.base.model.ProductInfo;
+import com.alipay.sofa.web.base.model.ProductInfo;
 
 import java.util.List;
 
