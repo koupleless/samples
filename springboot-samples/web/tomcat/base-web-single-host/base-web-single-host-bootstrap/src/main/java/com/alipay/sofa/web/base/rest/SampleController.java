@@ -16,8 +16,8 @@
  */
 package com.alipay.sofa.web.base.rest;
 
-import com.alipay.sofa.dynamicstock.base.facade.StrategyService;
-import com.alipay.sofa.dynamicstock.base.model.ProductInfo;
+import com.alipay.sofa.web.base.facade.StrategyService;
+import com.alipay.sofa.web.base.model.ProductInfo;
 import com.alipay.sofa.koupleless.common.api.SpringServiceFinder;
 import com.alipay.sofa.koupleless.common.exception.BizRuntimeException;
 import com.alipay.sofa.web.base.data.DatabaseSeed;
