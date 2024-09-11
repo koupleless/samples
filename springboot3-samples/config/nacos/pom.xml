@@ -31,12 +31,12 @@
             <dependency>
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>nacos-config-spring-boot-starter</artifactId>
-                <version>0.2.12</version>
+                <version>0.3.0-RC</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>nacos-discovery-spring-boot-starter</artifactId>
-                <version>0.2.12</version>
+                <version>0.3.0-RC</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

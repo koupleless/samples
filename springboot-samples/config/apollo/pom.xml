@@ -32,9 +32,10 @@
     </dependencyManagement>
 
     <modules>
-        <module>base</module>
-        <module>biz1</module>
-        <module>biz2</module>
+        <module>base-apollo</module>
+        <module>biz1-apollo</module>
+        <module>biz2-apollo</module>
+        <module>apollo-integration-test</module>
     </modules>
 
 </project>

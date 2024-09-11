@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alipay.sofa.config</groupId>
+        <artifactId>nacos</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.example</groupId>
+    <artifactId>nacos-integration-test</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alipay.sofa.koupleless</groupId>
+            <artifactId>koupleless-test-suite</artifactId>
+            <version>${koupleless.runtime.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sofa.config</groupId>
+            <artifactId>base-nacos</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <classifier>lib</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sofa.config</groupId>
+            <artifactId>biz1-nacos</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sofa.config</groupId>
+            <artifactId>biz2-nacos</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -18,9 +18,10 @@
 
 
     <modules>
-        <module>base</module>
-        <module>biz1</module>
-        <module>biz2</module>
+        <module>base-nacos</module>
+        <module>biz1-nacos</module>
+        <module>biz2-nacos</module>
+        <module>nacos-integration-test</module>
     </modules>
 
     <properties>

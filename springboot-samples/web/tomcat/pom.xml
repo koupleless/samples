@@ -15,9 +15,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
-        <module>biz1</module>
-        <module>biz2</module>
+        <module>base-web-single-host</module>
+        <module>biz1-web-single-host</module>
+        <module>biz2-web-single-host</module>
         <module>tomcat-web-integration-test</module>
     </modules>
 

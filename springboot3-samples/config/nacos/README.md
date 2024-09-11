@@ -25,13 +25,13 @@ now we will start a base and two modules biz1 and biz2, the mapping between modu
 ### Writing and reading different dataId in different modules
 
 start base, biz1 and biz2 modules, verify the logic of reading dataId
-- base: `curl http://localhost:8090/config/get` return false
-- biz1: `curl http://localhost:8090/biz1/config/get` return false
-- biz2: `curl http://localhost:8090/biz2/config/get` return false
+- base: `curl http://localhost:8080/config/get` return false
+- biz1: `curl http://localhost:8080/biz1/config/get` return false
+- biz2: `curl http://localhost:8080/biz2/config/get` return false
 
 run *curl -X POST "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=base&group=DEFAULT_GROUP&content=useLocalCache=true"* to set the value of dataId base to true
 
-run `curl http://localhost:8090/config/get` again, we can see the value is true, which means the dataId of base has been modified successfully and take effect. But the value of biz is still false
+run `curl http://localhost:8080/config/get` again, we can see the value is true, which means the dataId of base has been modified successfully and take effect. But the value of biz is still false
 
 ### using the same dataId in different modules
 
@@ -39,7 +39,7 @@ based on the above, because the modules biz1 and biz2 both use "biz" as dataId, 
 
 run `curl -X POST "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=biz&group=DEFAULT_GROUP&content=useLocalCache=true"` to set the value of dataId biz to true
 
-- biz1: `curl http://localhost:8090/biz1/config/get` return true
-- biz2: `curl http://localhost:8090/biz2/config/get` return true
+- biz1: `curl http://localhost:8080/biz1/config/get` return true
+- biz2: `curl http://localhost:8080/biz2/config/get` return true
 
 we can found that the two modules sharing the same dataId have read the modified value.

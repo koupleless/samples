@@ -14,9 +14,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
-        <module>biz1</module>
-        <module>biz2</module>
+        <module>base-ehcache</module>
+        <module>biz1-ehcache</module>
+        <module>biz2-ehcache</module>
+        <module>ehcache-integration-test</module>
     </modules>
 
 </project>

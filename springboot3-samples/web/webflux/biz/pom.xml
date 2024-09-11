@@ -8,19 +8,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../../../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.alipay.sofa</groupId>
-	<artifactId>bizwebflux</artifactId>
+	<groupId>com.alipay.sofa.web.webflux</groupId>
+	<artifactId>biz-webflux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bizwebflux</name>
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.alipay.sofa.koupleless</groupId>
-			<artifactId>koupleless-adapter-log4j2</artifactId>
-			<version>${koupleless.runtime.version}</version>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>com.alipay.sofa.koupleless</groupId>
 			<artifactId>koupleless-base-starter</artifactId>

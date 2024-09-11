@@ -6,6 +6,8 @@ English | [简体中文](./README-zh_CN.md)
 
 ## Samples for middleware in modules
 
+please notice that we need to install maven in your local environment, and the version should be greater than 3.9.0
+
 | Framework   | middleware             | explanation                                                     | location of samples                                                                                                                                      |
 |-------------|------------------------|-----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | springboot  | spring context manager | bean and service invocation across modules                      | [samples/springboot-samples/service](https://github.com/koupleless/koupleless/tree/main/samples/springboot-samples/service)                              |  
