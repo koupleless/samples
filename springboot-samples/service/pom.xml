@@ -18,5 +18,6 @@
         <module>biz1</module>
         <module>biz2</module>
         <module>cross-biz-calling-integration-test</module>
+        <module>biz3</module>
     </modules>
 </project>

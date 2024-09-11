@@ -16,6 +16,7 @@
  */
 package com.alipay.sofa.base.rest;
 
+import com.alipay.sofa.base.facade.AppService;
 import com.alipay.sofa.biz.facade.Param;
 import com.alipay.sofa.biz.facade.Provider;
 import com.alipay.sofa.biz.facade.Result;
@@ -41,6 +42,9 @@ public class SampleController {
 
     @AutowiredFromBiz(bizName = "biz1", name = "teacherProvider")
     private Provider teacherProvider;
+
+    @AutowiredFromBiz(bizName = "biz3", bizVersion = "0.0.1-SNAPSHOT", name = "biz3AppServiceImpl")
+    private AppService biz3AppServiceImpl;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello() {
@@ -79,6 +83,17 @@ public class SampleController {
             System.out.println(result2.getClass());
         }
 
+        System.out.println(biz3AppServiceImpl.getAppName());
+
+        AppService biz3OtherAppServiceImpl = SpringServiceFinder.getModuleService("biz3", "0.0.1-SNAPSHOT",
+            "biz3OtherAppServiceImpl", AppService.class);
+        System.out.println(biz3OtherAppServiceImpl.getAppName());
+
+        Map<String, AppService> appServiceMap = SpringServiceFinder.listModuleServices("biz3",
+                "0.0.1-SNAPSHOT", AppService.class);
+        for (AppService appService:appServiceMap.values()){
+            System.out.println(appService.getAppName());
+        }
         return "hello to ark master biz";
     }
 }

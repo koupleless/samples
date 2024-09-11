@@ -14,19 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.base.impl;
+package com.alipay.sofa.biz3.service;
 
 import com.alipay.sofa.base.facade.AppService;
-import org.springframework.stereotype.Service;
+import com.alipay.sofa.koupleless.common.api.SpringServiceFinder;
 
 /**
- * @author: yuanyuan
- * @date: 2023/9/26 2:29 下午
+ * @author lianglipeng.llp@alibaba-inc.com
+ * @version $Id: Biz3AppServiceImpl.java, v 0.1 2024年09月11日 16:06 立蓬 Exp $
  */
-@Service
-public class AppServiceImpl implements AppService {
-    @Override
+public class Biz3AppServiceImpl implements AppService {
+    // 获取基座的bean
+    private AppService baseAppService = SpringServiceFinder.getBaseService(AppService.class);
+
     public String getAppName() {
-        return "baseApp";
+        return "biz3AppServiceImpl in the base: " + baseAppService.getAppName();
     }
 }

@@ -43,7 +43,7 @@ base 为普通 springboot 改造成的基座，改造内容为在 pom 里增加�
 ```
 
 ### biz
-biz 包含两个模块，分别为 biz1 和 biz2, 都是普通 springboot，修改打包插件方式为 sofaArk biz 模块打包方式，打包为 ark biz jar 包，打包插件配置如下：
+biz 包含三个模块，分别为 biz1, biz2, biz3。其中，biz1 和 biz2 都是普通 springboot，biz3 是纯代码片段。修改打包插件方式为 sofaArk biz 模块打包方式，打包为 ark biz jar 包，打包插件配置如下：
 ```xml
 <dependency>
     <groupId>com.alipay.sofa.koupleless</groupId>
@@ -74,7 +74,7 @@ biz 包含两个模块，分别为 biz1 和 biz2, 都是普通 springboot，修�
     </configuration>
 </plugin>
 ```
-注意这里将不同 biz 的web context path 修改成不同的值，以此才能成功在一个 tomcat host 里安装多个 web 应用。
+注意这里将 biz1 和 biz2 的web context path 修改成不同的值，以此才能成功在一个 tomcat host 里安装多个 web 应用。
 
 
 ## 实验步骤
@@ -83,11 +83,11 @@ biz 包含两个模块，分别为 biz1 和 biz2, 都是普通 springboot，修�
 
 可以使用 IDEA run 启动基座应用
 
-### 打包模块应用 biz1、biz2
+### 打包模块应用 biz1、biz2、biz3
 
-在samples/springboot-samples/service/sample-service-biz 和 samples/springboot-samples/service/sample-service-biz2 目录下分别执行 mvn clean package -Dmaven.test.skip=true 进行模块打包， 打包完成后可在各 bundle 的 target 目录里查看到打包生成的 ark-biz jar 包
+在samples/springboot-samples/service/biz1/biz1-bootstrap, samples/springboot-samples/service/biz2/biz2-bootstrap, samples/springboot-samples/service/biz3/biz3-bootstrap 目录下分别执行 mvn clean package -Dmaven.test.skip=true 进行模块打包， 打包完成后可在各 bundle 的 target 目录里查看到打包生成的 ark-biz jar 包
 
-### 安装模块应用 biz1、biz2
+### 安装模块应用 biz1、biz2、biz3
 
 #### 执行 curl 命令安装 biz1
 
@@ -98,7 +98,7 @@ curl --location --request POST 'localhost:1238/installBiz' \
     "bizName": "biz",
     "bizVersion": "0.0.1-SNAPSHOT",
     // local path should start with file://, alse support remote url which can be downloaded
-    "bizUrl": "file:///Users/xxxx/xxxx/Code/koupleless/samples/springboot-samples/service/sample-service-biz/biz-bootstrap/target/biz-bootstrap-0.0.1-SNAPSHOT-ark-biz.jar"
+    "bizUrl": "file:///Users/xxxx/xxxx/Code/koupleless/samples/springboot-samples/service/biz1/biz1-bootstrap/target/biz1-bootstrap-0.0.1-SNAPSHOT-ark-biz.jar"
 }'
 ```
 
@@ -111,9 +111,23 @@ curl --location --request POST 'localhost:1238/installBiz' \
     "bizName": "biz2",
     "bizVersion": "0.0.1-SNAPSHOT",
     // local path should start with file://, alse support remote url which can be downloaded
-    "bizUrl": "file:///Users/xxxx/xxxx/Code/koupleless/samples/springboot-samples/service/sample-service-biz2/biz2-bootstrap/target/biz2-bootstrap-0.0.1-SNAPSHOT-ark-biz.jar"
+    "bizUrl": "file:///Users/xxxx/xxxx/Code/koupleless/samples/springboot-samples/service/biz2/biz2-bootstrap/target/biz2-bootstrap-0.0.1-SNAPSHOT-ark-biz.jar"
 }'
 ```
+
+#### 执行 curl 命令安装 biz3
+
+```shell
+curl --location --request POST 'localhost:1238/installBiz' \
+--header 'Content-Type: application/json' \
+--data '{
+    "bizName": "biz3",
+    "bizVersion": "0.0.1-SNAPSHOT",
+    // local path should start with file://, alse support remote url which can be downloaded
+    "bizUrl": "file:///Users/xxxx/xxxx/Code/koupleless/samples/springboot-samples/service/biz3/biz3-bootstrap/target/biz3-bootstrap-0.0.1-SNAPSHOT-ark-biz.jar"
+}'
+```
+
 
 ### 发起请求验证
 
