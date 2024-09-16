@@ -38,10 +38,10 @@ import java.util.Map;
 public class SampleController {
 
     @AutowiredFromBiz(bizName = "biz1", bizVersion = "0.0.1-SNAPSHOT", name = "studentProvider")
-    private Provider studentProvider;
+    private Provider   studentProvider;
 
     @AutowiredFromBiz(bizName = "biz1", name = "teacherProvider")
-    private Provider teacherProvider;
+    private Provider   teacherProvider;
 
     @AutowiredFromBiz(bizName = "biz3", bizVersion = "0.0.1-SNAPSHOT", name = "biz3AppServiceImpl")
     private AppService biz3AppServiceImpl;
@@ -85,13 +85,13 @@ public class SampleController {
 
         System.out.println(biz3AppServiceImpl.getAppName());
 
-        AppService biz3OtherAppServiceImpl = SpringServiceFinder.getModuleService("biz3", "0.0.1-SNAPSHOT",
-            "biz3OtherAppServiceImpl", AppService.class);
+        AppService biz3OtherAppServiceImpl = SpringServiceFinder.getModuleService("biz3",
+            "0.0.1-SNAPSHOT", "biz3OtherAppServiceImpl", AppService.class);
         System.out.println(biz3OtherAppServiceImpl.getAppName());
 
         Map<String, AppService> appServiceMap = SpringServiceFinder.listModuleServices("biz3",
-                "0.0.1-SNAPSHOT", AppService.class);
-        for (AppService appService:appServiceMap.values()){
+            "0.0.1-SNAPSHOT", AppService.class);
+        for (AppService appService : appServiceMap.values()) {
             System.out.println(appService.getAppName());
         }
         return "hello to ark master biz";
