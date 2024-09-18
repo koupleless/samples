@@ -8,7 +8,7 @@
 
 # 实验内容
 ## 注意事项
-打包 ark-biz jar 包的原则是，在保证模块功能的前提下，将框架、中间件等通用的包尽量放置到基座中，模块中复用基座的包，这样打出的 ark-biz jar 会更加轻量。在复杂应用中，为了更好的使用模块自动瘦身功能，需要在模块瘦身配置 (根目录/conf/ark/文件名.txt)，按照既定格式，排除更多的通用依赖包。
+打包 ark-biz jar 包的原则是，在保证模块功能的前提下，将框架、中间件等通用的包尽量放置到基座中，模块中复用基座的包，这样打出的 ark-biz jar 会更加轻量。在复杂应用中，为了更好的使用模块自动瘦身功能，需要在模块瘦身配置 (根目录 /conf/ark/bootstrap.properties or /conf/ark/bootstrap.yml)，按照既定格式，排除更多的通用依赖包。
 ## 实验应用
 ### base
 base 为普通 springboot 改造成的基座，改造内容为在主 pom 里增加如下依赖（详情可以参照其他实验）
@@ -87,9 +87,6 @@ biz1 包含两个打包插件，一个常规 springboot 插件, 构建普通 spr
             <skipArkExecutable>true</skipArkExecutable>
             <outputDirectory>./target</outputDirectory>
             <bizName>biz1</bizName>
-            <!-- packExcludesConfig	模块瘦身配置，文件名自定义，和配置对应即可-->
-            <!--					配置文件位置：biz1/conf/ark/rules.txt-->
-            <packExcludesConfig>rules.txt</packExcludesConfig>
             <webContextPath>biz1</webContextPath>
             <declaredMode>true</declaredMode>
             <!--					打包、安装和发布 ark biz-->

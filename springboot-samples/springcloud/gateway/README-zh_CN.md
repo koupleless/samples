@@ -59,7 +59,6 @@ biz 包含两个模块，分别为 biz1 和 biz2, 都是普通 springboot cloud�
         <!-- 单host下需更换 web context path -->
         <webContextPath>${bizName}</webContextPath>
         <declaredMode>true</declaredMode>
-        <packExcludesConfig>rules.txt</packExcludesConfig>
     </configuration>
 </plugin>
 ```

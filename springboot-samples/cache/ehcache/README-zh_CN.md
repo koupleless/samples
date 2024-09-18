@@ -77,11 +77,10 @@ biz1 是普通 springboot 应用，修改打包插件方式为 sofaArk biz 模�
         <!-- 单host下需更换 web context path -->
         <webContextPath>${bizName}</webContextPath>
         <declaredMode>true</declaredMode>
-        <packExcludesConfig>rules.txt</packExcludesConfig>
     </configuration>
 </plugin>
 ```
-注意这里通过引入 rules.txt 来完成模块自动瘦身，其中包括 ehcache 的依赖也会自动委托给基座加载。另外也需将不同 biz 的web context path 修改成不同的值，以此才能成功在一个 tomcat host 里安装多个 web 应用。
+注意这里通过配置 conf/ark/bootstrap.properties 或 conf/ark/bootstrap.yml 来完成模块自动瘦身，其中包括 ehcache 的依赖也会自动委托给基座加载。另外也需将不同 biz 的web context path 修改成不同的值，以此才能成功在一个 tomcat host 里安装多个 web 应用。
 
 ### biz2
 同 biz1

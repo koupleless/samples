@@ -6,7 +6,7 @@ English | [简体中文](./README-zh_CN.md)
 
 # Experiment: module slimming by auto excluding dependencies
 ## precautions
-how to slim ark biz jar: delegate the framework, middleware and other common dependencies to base, and reuse the dependencies in base, so that the ark-biz jar will be very small. We recommend to exclude those dependencies in module by slimming configuration (conf/ark/rules.txt).
+how to slim ark biz jar: delegate the framework, middleware and other common dependencies to base, and reuse the dependencies in base, so that the ark-biz jar will be very small. We recommend to exclude those dependencies in module by slimming configuration (conf/ark/bootstrap.properties or conf/ark/bootstrap.yml).
 ## Experiment application
 ### base
 The base is built from regular SpringBoot application. The only change you need to do is to add the following dependencies in pom
@@ -85,9 +85,6 @@ biz1 contains two packaging plugin, one for regular springboot fatjar plugin, an
             <skipArkExecutable>true</skipArkExecutable>
             <outputDirectory>./target</outputDirectory>
             <bizName>biz1</bizName>
-            <!-- packExcludesConfig is for module slimming, file name can be customized,
-            for example rlues.txt means config files biz1/conf/ark/rules.txt -->
-            <packExcludesConfig>rules.txt</packExcludesConfig>
             <webContextPath>biz1</webContextPath>
             <declaredMode>true</declaredMode>
             <!-- packaging、install and deploy ark biz -->

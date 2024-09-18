@@ -82,7 +82,6 @@
                     <!-- 单host下需更换 web context path -->
                     <webContextPath>biz2</webContextPath>
                     <declaredMode>true</declaredMode>
-                    <packExcludesConfig>rules.txt</packExcludesConfig>
                 </configuration>
             </plugin>
         </plugins>

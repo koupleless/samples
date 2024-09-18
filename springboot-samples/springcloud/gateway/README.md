@@ -50,7 +50,6 @@ The biz contains two modules, biz1 and biz2, both are regular SpringBoot. The pa
         <!-- single host mode, need to change web context path -->
         <webContextPath>${bizName}</webContextPath>
         <declaredMode>true</declaredMode>
-        <packExcludesConfig>rules.txt</packExcludesConfig>
     </configuration>
 </plugin>
 
