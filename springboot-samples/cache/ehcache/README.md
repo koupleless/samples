@@ -79,11 +79,10 @@ The biz contains module biz1, which are regular SpringBoot. The packaging plugin
         <!-- single host mode, need to change web context path -->
         <webContextPath>${bizName}</webContextPath>
         <declaredMode>true</declaredMode>
-        <packExcludesConfig>rules.txt</packExcludesConfig>
     </configuration>
 </plugin>
 ```
-Note that here by introducing rules.txt to complete the automatic slimming of the module, including the dependency of ehcache will also be automatically delegated to the base for loading. Also, you need to change the web context path of different biz to different values, so that multiple web applications can be successfully installed in a tomcat host.
+Note that here by introducing conf/ark/bootstrap.properties or conf/ark/bootstrap.yml to complete the automatic slimming of the module, including the dependency of ehcache will also be automatically delegated to the base for loading. Also, you need to change the web context path of different biz to different values, so that multiple web applications can be successfully installed in a tomcat host.
 
 ### biz2
 same as biz1

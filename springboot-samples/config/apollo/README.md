@@ -52,6 +52,6 @@ docker-compose up
 7. run `curl http://localhost:8081/biz2/getValue` to get biz2 config value, modify biz2 data.name, and run `curl http://localhost:8081/biz2/getValue` again to get new biz2 config value
 
 ### using same app id for different modules, independent configuration
-using [automatic slimming](https://koupleless.gitee.io/docs/tutorials/module-development/module-slimming/#%E4%B8%80%E9%94%AE%E8%87%AA%E5%8A%A8%E7%98%A6%E8%BA%AB) to delegate apollo client to base, add `excludeGroupIds=com.ctrip.framework.apollo*` in rules.txt to make sure apollo client is delegated to base.
+using [automatic slimming](https://koupleless.gitee.io/docs/tutorials/module-development/module-slimming/#%E4%B8%80%E9%94%AE%E8%87%AA%E5%8A%A8%E7%98%A6%E8%BA%AB) to delegate apollo client to base, add `excludeGroupIds=com.ctrip.framework.apollo*` in conf/ark/bootstrap.properties or conf/ark/bootstrap.yml to make sure apollo client is delegated to base.
 
 Please notice that add `spring.jmx.default-domain=${spring.application.name}` in application.properties

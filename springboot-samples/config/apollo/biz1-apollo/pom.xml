@@ -74,7 +74,6 @@
                     <bizName>biz1-apollo</bizName>
                     <webContextPath>biz1</webContextPath>
                     <declaredMode>true</declaredMode>
-                    <packExcludesConfig>rules.txt</packExcludesConfig>
                     <!--					打包、安装和发布 ark biz-->
                     <!--					静态合并部署需要配置-->
                     <!--					<attach>true</attach>-->
