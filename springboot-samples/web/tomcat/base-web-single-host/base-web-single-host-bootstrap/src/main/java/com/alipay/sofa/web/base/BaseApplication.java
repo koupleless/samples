@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.util.Assert;
 
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class BaseApplication {
@@ -29,6 +30,9 @@ public class BaseApplication {
 
     public static void main(String[] args) {
         MultiBizProperties.initSystem();
+
+        System.setProperty("app.name", "base");
+        Assert.isTrue("base".equals(System.getProperty("app.name")), "app.name is not base");
         SpringApplication.run(BaseApplication.class, args);
         LOGGER.info("BaseApplication start!");
         LOGGER.info("Spring Boot Version: "
