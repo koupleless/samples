@@ -20,12 +20,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.util.Assert;
 
 @SpringBootApplication
 public class Biz2Application {
 
     public static void main(String[] args) {
         SpringApplicationBuilder builder = new SpringApplicationBuilder(Biz2Application.class);
+
+        //        System.setProperty("app.name", "biz2");
+        // if not set app.name, use value "base" from base application
+        Assert.isTrue("base".equals(System.getProperty("app.name")), "app.name is not biz2");
 
         // set biz to use resource loader.
         ResourceLoader resourceLoader = new DefaultResourceLoader(
