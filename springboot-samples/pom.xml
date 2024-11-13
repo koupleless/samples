@@ -60,6 +60,7 @@
         <module>db/mongo/mongo-integration-test</module>
         <module>scheduler</module>
         <module>security</module>
+        <module>tracing/skywalking</module>
     </modules>
 
     <dependencyManagement>
