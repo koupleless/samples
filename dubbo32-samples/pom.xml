@@ -11,7 +11,7 @@
     <properties>
         <spring.boot.version>3.2.2</spring.boot.version>
         <sofa.ark.version>3.1.9</sofa.ark.version>
-        <koupleless.runtime.version>2.1.8</koupleless.runtime.version>
+        <koupleless.runtime.version>2.1.9</koupleless.runtime.version>
         <dubbo.version>3.2.10</dubbo.version>
         <license.maven.plugin>3.0</license.maven.plugin>
         <maven.java.formatter.plugin>0.4</maven.java.formatter.plugin>
