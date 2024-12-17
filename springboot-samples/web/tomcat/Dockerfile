@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=./base/bootstrap/target/*.jar
-ADD ${JAR_FILE} app.jar
-COPY config/arkctl* /bin/arkctl
+ARG JAR_FILE=./base-web-single-host/base-web-single-host-bootstrap/target/base-web-single-host-bootstrap-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} /
 # 如果是  mac 64位机器，则执行
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 1238
+ENTRYPOINT ["java","-jar","/base-web-single-host-bootstrap-0.0.1-SNAPSHOT.jar"]
