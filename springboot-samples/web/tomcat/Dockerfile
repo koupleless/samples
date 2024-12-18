@@ -4,4 +4,5 @@ COPY ${JAR_FILE} /
 # 如果是  mac 64位机器，则执行
 EXPOSE 8080
 EXPOSE 1238
-ENTRYPOINT ["java","-jar","/base-web-single-host-bootstrap-0.0.1-SNAPSHOT.jar"]
+ENV MODULE_CONTROLLER_ADDRESS=127.0.0.1
+CMD ["sh", "-c", "java -Dkoupleless.arklet.http.heartbeat.endpoint=http://${MODULE_CONTROLLER_ADDRESS} -jar /base-web-single-host-bootstrap-0.0.1-SNAPSHOT.jar"]
