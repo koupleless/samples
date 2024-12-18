@@ -34,9 +34,7 @@
     </properties>
 
     <modules>
-        <module>logging/log4j2/base</module>
-        <module>logging/log4j2/biz1</module>
-        <module>logging/log4j2/biz2</module>
+        <module>logging/log4j2</module>
         <module>logging/logback</module>
         <module>web/tomcat</module>
         <module>web/webflux</module>

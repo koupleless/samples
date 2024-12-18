@@ -14,27 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.web.base;
+package com.alipay.sofa.logging.log4j2.biz2;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ImportResource;
 
-@ImportResource({ "classpath*:META-INF/spring/service.xml" })
-@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
-public class BaseApplication {
-    private static Logger LOGGER = LoggerFactory.getLogger(BaseApplication.class);
+@SpringBootApplication
+public class Biz2Application {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(Biz2Application.class);
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(BaseApplication.class, args);
-        context.getBean("sampleService");
+        SpringApplication.run(Biz2Application.class, args);
+
         LOGGER.info("BaseApplication start!");
         LOGGER.info("Spring Boot Version: "
                     + SpringApplication.class.getPackage().getImplementationVersion());
-        LOGGER.info("BaseApplication classLoader: " + BaseApplication.class.getClassLoader());
+        LOGGER.info("BaseApplication classLoader: " + Biz2Application.class.getClassLoader());
     }
+
 }

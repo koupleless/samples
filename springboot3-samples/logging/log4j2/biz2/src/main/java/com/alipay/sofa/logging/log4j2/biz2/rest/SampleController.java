@@ -14,24 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.web.biz1;
+package com.alipay.sofa.logging.log4j2.biz2.rest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
-public class Biz1Application {
-    private static Logger LOGGER = LoggerFactory.getLogger(Biz1Application.class);
+@RestController
+public class SampleController {
+    private static Logger      LOGGER = LoggerFactory.getLogger(SampleController.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(Biz1Application.class, args);
+    @Autowired
+    private ApplicationContext applicationContext;
 
-        LOGGER.info("BaseApplication start!");
-        LOGGER.info("Spring Boot Version: "
-                    + SpringApplication.class.getPackage().getImplementationVersion());
-        LOGGER.info("BaseApplication classLoader: " + Biz1Application.class.getClassLoader());
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String hello() {
+        String appName = applicationContext.getId();
+        LOGGER.info("{} web test: into sample controller", appName);
+        return String.format("hello to %s deploy", appName);
     }
-
 }
