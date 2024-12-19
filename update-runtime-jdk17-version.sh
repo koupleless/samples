@@ -11,5 +11,5 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
   grep -rn --include="*.xml" "<koupleless.runtime.version>2\..*</koupleless.runtime.version>" | awk -F: '{print $1}' | xargs -I {} sed -i '' "s/\<koupleless.runtime.version\>2\..*\<\/koupleless.runtime.version\>/\<koupleless.runtime.version\>$1\<\/koupleless.runtime.version\>/g" {}
 else
-  grep -rn --include="*.xml" "<koupleless.runtime.version>2\..*</koupleless.runtime.version>" | awk -F: '{print $1}' | xargs -I {} sed -i "s/\<koupleless.runtime.version\>2\..*\<\/koupleless.runtime.version\>/\<koupleless.runtime.version\>$1\<\/koupleless.runtime.version\>/g" {}
+  grep -rn --include="*.xml" "<koupleless.runtime.version>2\..*</koupleless.runtime.version>" | awk -F: '{print $1}' | xargs -I {} sed -i "s/<koupleless.runtime.version>2\..*<\/koupleless.runtime.version>/<koupleless.runtime.version>$1<\/koupleless.runtime.version>/g" {}
 fi
