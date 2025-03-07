@@ -22,6 +22,8 @@ import com.alipay.sofa.biz.facade.Result;
 import com.alipay.sofa.biz.facade.Student;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * @author: yuanyuan
  * @date: 2023/9/25 3:27 下午
@@ -30,7 +32,8 @@ import org.springframework.stereotype.Service;
 public class StudentProvider implements Provider {
 
     @Override
-    public Result provide(Param param) {
+    public Result provide(Param param, Param[] params, byte b, byte[] bs,
+                          Map<String, Object> config, Class[] clazzs) {
         Result result = new Result();
         result.setSuccess(true);
         result.setPeople(new Student());

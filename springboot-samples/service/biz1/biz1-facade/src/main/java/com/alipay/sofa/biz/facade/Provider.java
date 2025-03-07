@@ -16,11 +16,14 @@
  */
 package com.alipay.sofa.biz.facade;
 
+import java.util.Map;
+
 /**
  * @author: yuanyuan
  * @date: 2023/10/16 8:55 下午
  */
 public interface Provider {
 
-    Result provide(Param param);
+    Result provide(Param param, Param[] params, byte b, byte[] bs, Map<String, Object> config,
+                   Class[] clazzs);
 }
