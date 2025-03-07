@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -87,22 +88,28 @@ public class SampleController {
             System.out.println(result1);
         }
 
-        Result provide = studentProvider.provide(new Param());
+        Result provide = studentProvider.provide(new Param(), new Param[] { new Param() },
+            (byte) 1, new byte[] { 1 }, new HashMap<>(), new Class[] {});
 
-        Result provide1 = teacherProvider.provide(new Param());
+        Result provide1 = teacherProvider.provide(new Param(), new Param[] { new Param() },
+            (byte) 1, new byte[] { 1 }, new HashMap<>(), new Class[] {});
 
         for (Provider provider : providers) {
-            Result provide2 = provider.provide(new Param());
+            Result provide2 = provider.provide(new Param(), new Param[] { new Param() }, (byte) 1,
+                new byte[] { 1 }, new HashMap<>(), new Class[] {});
         }
 
         Provider teacherProvider1 = SpringServiceFinder.getModuleService("biz1", "0.0.1-SNAPSHOT",
             "teacherProvider", Provider.class);
-        Result result1 = teacherProvider1.provide(new Param());
+        Result result1 = teacherProvider1.provide(new Param(), new Param[] { new Param() },
+            (byte) 1, new byte[] { 1 }, new HashMap<>(), new Class[] {});
 
         Map<String, Provider> providerMap = SpringServiceFinder.listModuleServices("biz1",
             "0.0.1-SNAPSHOT", Provider.class);
         for (String beanName : providerMap.keySet()) {
-            Result result2 = providerMap.get(beanName).provide(new Param());
+            Result result2 = providerMap.get(beanName).provide(new Param(),
+                new Param[] { new Param() }, (byte) 1, new byte[] { 1 }, new HashMap<>(),
+                new Class[] {});
         }
 
         return "hello to ark biz2 dynamic deploy";

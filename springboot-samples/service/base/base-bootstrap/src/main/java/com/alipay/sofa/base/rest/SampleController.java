@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -48,13 +50,15 @@ public class SampleController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello() {
-        Result tmp = studentProvider.provide(new Param());
+        Result tmp = studentProvider.provide(new Param(), new Param[] { new Param() }, (byte) 1,
+            new byte[] { 1 }, new HashMap<>(), new Class[] {});
         System.out.println(tmp.getClass());
         System.out.println(tmp.isSuccess());
         System.out.println(tmp.getPeople().getClass());
         System.out.println(tmp);
 
-        Result tmp1 = teacherProvider.provide(new Param());
+        Result tmp1 = teacherProvider.provide(new Param(), new Param[] { new Param() }, (byte) 1,
+            new byte[] { 1 }, new HashMap<>(), new Class[] {});
         System.out.println(tmp1.getClass());
         System.out.println(tmp1.isSuccess());
         System.out.println(tmp1.getPeople().getClass());
@@ -62,7 +66,8 @@ public class SampleController {
 
         Provider studentProvider = SpringServiceFinder.getModuleService("biz1", "0.0.1-SNAPSHOT",
             "studentProvider", Provider.class);
-        Result result = studentProvider.provide(new Param());
+        Result result = studentProvider.provide(new Param(), new Param[] { new Param() }, (byte) 1,
+            new byte[] { 1 }, new HashMap<>(), new Class[] {});
         System.out.println(result.getClass());
         System.out.println(result.isSuccess());
         System.out.println(result.getPeople().getClass());
@@ -70,7 +75,8 @@ public class SampleController {
 
         Provider teacherProvider = SpringServiceFinder.getModuleService("biz1", "0.0.1-SNAPSHOT",
             "teacherProvider", Provider.class);
-        Result result1 = teacherProvider.provide(new Param());
+        Result result1 = teacherProvider.provide(new Param(), new Param[] { new Param() },
+            (byte) 1, new byte[] { 1 }, new HashMap<>(), new Class[] {});
         System.out.println(result1.getClass());
         System.out.println(result1.isSuccess());
         System.out.println(result1.getPeople().getClass());
@@ -79,7 +85,9 @@ public class SampleController {
         Map<String, Provider> providerMap = SpringServiceFinder.listModuleServices("biz1",
             "0.0.1-SNAPSHOT", Provider.class);
         for (String beanName : providerMap.keySet()) {
-            Result result2 = providerMap.get(beanName).provide(new Param());
+            Result result2 = providerMap.get(beanName).provide(new Param(),
+                new Param[] { new Param() }, (byte) 1, new byte[] { 1 }, new HashMap<>(),
+                new Class[] {});
             System.out.println(result2.getClass());
         }
 
